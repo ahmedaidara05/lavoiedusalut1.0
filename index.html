@@ -3,234 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Application de lecture pour 'La Voie du Salut' avec mode sombre, zoom, favoris, lecture vocale, traduction et assistant IA">
-    <meta name="theme-color" content="#1e3a8a">
     <title>La Voie du Salut</title>
-    <link rel="icon" href="book-icon.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <link rel="icon" href="book-icon.png">
 </head>
 <body>
     <header>
-        <nav class="left-nav">
-            <button id="home-btn" title="Accueil">🏠</button>
-            <button id="menu-btn" title="Sommaire">☰</button>
-        </nav>
-        <div class="header-content">
-            <h1>La Voie du Salut</h1>
-            <img src="book-cover.jpg" alt="Couverture du livre" class="header-book">
-        </div>
-        <nav class="right-nav">
-            <button id="theme-toggle" title="Mode sombre/clair">
-                <span class="icon">🌙</span>
-            </button>
-            <button id="voice-toggle" title="Lecture vocale">
-                <span class="icon">🔊</span>
-            </button>
-            <select id="voice-select" title="Choisir une voix"></select>
-            <button id="language-toggle" title="Changer de langue">
-                <span class="icon">🌐</span>
-            </button>
-            <button id="favorites-btn" title="Voir les favoris">⭐</button>
-            <button id="profile-btn" title="Profil">
-                <span class="icon">👤</span>
-                <span id="user-status" class="user-status"></span>
-            </button>
-        </nav>
+        <button id="home-btn" title="Accueil">🏠</button>
+        <button id="menu-btn" title="Sommaire">☰</button>
+        <button id="language-toggle" title="Langue"><span class="icon">🌐</span></button>
+        <button id="theme-toggle" title="Thème"><span class="icon">🌙</span></button>
+        <button id="voice-toggle" title="Lecture vocale"><span class="icon">🔊</span></button>
+        <button id="favorites-btn" title="Favoris">⭐</button>
+        <button id="profile-btn" title="Profil">👤</button>
+        <button id="chat-btn" title="Chat">💬</button>
     </header>
-
     <main>
-        <!-- Page d'accueil -->
         <section id="home" class="active">
-            <div class="home-content">
-                <div class="home-text">
-                    <h2>Bienvenue dans La Voie du Salut</h2>
-                    <p>Plongez dans une épopée spirituelle et captivante avec *La Voie du Salut*, une œuvre d’Ahmed Said Aidara qui guide les âmes vers la lumière...</p>
-                    <button id="start-btn">Commencer</button>
-                </div>
-                <img src="book-cover.jpg" alt="Couverture du livre" class="book-cover">
-            </div>
+            <img src="book-cover.jpg" alt="Couverture du livre" width="200" height="300">
+            <h1>La Voie du Salut</h1>
+            <p>par Ahmed Said Aidara</p>
+            <button id="start-btn">Commencer</button>
         </section>
-
-        <!-- Sommaire -->
-        <section id="table-of-contents" class="chapter">
-            <button class="close-btn" title="Retour à l'accueil">✖</button>
+        <section id="table-of-contents">
+            <button class="close-btn" title="Retour">✖</button>
             <h2>Sommaire</h2>
-            <ul id="chapter-list">
-                <li><a href="#preamble">Préambule</a></li>
-                <li><a href="#foreword">Avant-propos</a></li>
-                <li><a href="#chapter1">Chapitre 1 : Le Premier Pas</a></li>
-                <li><a href="#chapter2">Chapitre 2 : Les Échos de l’Âme</a></li>
-                <!-- ... 40 autres chapitres générés dynamiquement dans script.js ... -->
-                <li><a href="#chapter42">Chapitre 42 : La Lumière Éternelle</a></li>
-            </ul>
+            <ul id="chapter-list"></ul>
         </section>
-
-        <!-- Préambule -->
-        <section id="preamble" class="chapter">
-            <button class="close-btn" title="Retour à l'accueil">✖</button>
-            <div class="chapter-header">
-                <h2>Préambule</h2>
-                <span class="favorite" data-chapter="preamble" title="Ajouter aux favoris">⭐</span>
-            </div>
-            <div class="content" data-lang="fr"></div>
-            <div class="content" data-lang="en" style="display: none;"></div>
-            <div class="content" data-lang="ar" style="display: none;"></div>
-            <div class="chapter-nav">
-                <button class="prev-btn" disabled>← Précédent</button>
-                <button class="next-btn">Suivant →</button>
-            </div>
-        </section>
-
-        <!-- Avant-propos -->
-        <section id="foreword" class="chapter">
-            <button class="close-btn" title="Retour à l'accueil">✖</button>
-            <div class="chapter-header">
-                <h2>Avant-propos</h2>
-                <span class="favorite" data-chapter="foreword" title="Ajouter aux favoris">⭐</span>
-            </div>
-            <div class="content" data-lang="fr"></div>
-            <div class="content" data-lang="en" style="display: none;"></div>
-            <div class="content" data-lang="ar" style="display: none;"></div>
-            <div class="chapter-nav">
-                <button class="prev-btn">← Précédent</button>
-                <button class="next-btn">Suivant →</button>
-            </div>
-        </section>
-
-        <!-- Chapitre 1 -->
-        <section id="chapter1" class="chapter">
-            <button class="close-btn" title="Retour à l'accueil">✖</button>
-            <div class="chapter-header">
-                <h2>Chapitre 1 : Le Premier Pas</h2>
-                <span class="favorite" data-chapter="chapter1" title="Ajouter aux favoris">⭐</span>
-            </div>
-            <div class="content" data-lang="fr"></div>
-            <div class="content" data-lang="en" style="display: none;"></div>
-            <div class="content" data-lang="ar" style="display: none;"></div>
-            <div class="chapter-nav">
-                <button class="prev-btn">← Précédent</button>
-                <button class="next-btn">Suivant →</button>
-            </div>
-        </section>
-
-        <!-- ... Chapitres 2 à 41 générés dynamiquement dans script.js ... -->
-
-        <!-- Chapitre 42 -->
-        <section id="chapter42" class="chapter">
-            <button class="close-btn" title="Retour à l'accueil">✖</button>
-            <div class="chapter-header">
-                <h2>Chapitre 42 : La Lumière Éternelle</h2>
-                <span class="favorite" data-chapter="chapter42" title="Ajouter aux favoris">⭐</span>
-            </div>
-            <div class="content" data-lang="fr"></div>
-            <div class="content" data-lang="en" style="display: none;"></div>
-            <div class="content" data-lang="ar" style="display: none;"></div>
-            <div class="chapter-nav">
-                <button class="prev-btn">← Précédent</button>
-                <button class="next-btn" disabled>Suivant →</button>
-            </div>
-        </section>
-
-        <!-- Page des favoris -->
-        <section id="favorites" class="chapter">
-            <button class="close-btn" title="Retour à l'accueil">✖</button>
-            <h2>Vos Chapitres Favoris</h2>
+        <section id="favorites">
+            <button class="close-btn" title="Retour">✖</button>
+            <h2>Favoris</h2>
             <ul id="favorites-list"></ul>
         </section>
-
-        <!-- Page de profil -->
-        <section id="profile" class="chapter">
-            <button class="close-btn" title="Retour à l'accueil">✖</button>
+        <section id="profile">
+            <button class="close-btn" title="Retour">✖</button>
             <h2>Profil</h2>
-            <div class="profile-content">
-                <h3>Compte</h3>
-                <div id="user-info" style="display: none;">
-                    <p><strong>Nom :</strong> <span id="user-name"></span></p>
-                    <p><strong>E-mail :</strong> <span id="user-email"></span></p>
-                    <button id="sign-out-btn">Déconnexion</button>
-                </div>
-                <div id="auth-forms">
-                    <h4>Connexion</h4>
-                    <form id="login-form">
-                        <div class="form-group">
-                            <label for="login-email">E-mail :</label>
-                            <input type="email" id="login-email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="login-password">Mot de passe :</label>
-                            <input type="password" id="login-password" required>
-                        </div>
-                        <button type="submit">Se connecter</button>
-                        <p><a href="#" id="reset-password">Mot de passe oublié ?</a></p>
-                    </form>
-                    <h4>Inscription</h4>
-                    <form id="signup-form">
-                        <div class="form-group">
-                            <label for="signup-name">Nom :</label>
-                            <input type="text" id="signup-name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="signup-email">E-mail :</label>
-                            <input type="email" id="signup-email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="signup-password">Mot de passe :</label>
-                            <input type="password" id="signup-password" required>
-                        </div>
-                        <button type="submit">S'inscrire</button>
-                    </form>
-                </div>
+            <div id="user-info" style="display: none;">
+                <p><strong>Nom :</strong> <span id="user-name"></span></p>
+                <p><strong>E-mail :</strong> <span id="user-email"></span></p>
+                <p><strong>Statut :</strong> <span id="user-status"></span></p>
+                <button id="sign-out-btn">Déconnexion</button>
+            </div>
+            <div id="auth-forms">
+                <form id="signup-form">
+                    <h3>Inscription</h3>
+                    <input type="text" id="signup-name" placeholder="Nom" required>
+                    <input type="email" id="signup-email" placeholder="E-mail" required>
+                    <input type="password" id="signup-password" placeholder="Mot de passe" required>
+                    <button type="submit">S’inscrire</button>
+                </form>
+                <form id="login-form">
+                    <h3>Connexion</h3>
+                    <input type="email" id="login-email" placeholder="E-mail" required>
+                    <input type="password" id="login-password" placeholder="Mot de passe" required>
+                    <button type="submit">Se connecter</button>
+                    <a href="#" id="reset-password">Mot de passe oublié ?</a>
+                </form>
                 <p id="auth-error" style="color: red;"></p>
-                <h3>Paramètres</h3>
-                <div class="setting">
-                    <label for="profile-language">Langue :</label>
-                    <select id="profile-language">
-                        <option value="fr">Français</option>
-                        <option value="en">English</option>
-                        <option value="ar">العربية</option>
-                    </select>
-                </div>
-                <div class="setting">
-                    <label for="profile-theme">Mode sombre :</label>
-                    <input type="checkbox" id="profile-theme">
-                </div>
-                <div class="setting">
-                    <label for="profile-font-size">Taille de la police :</label>
-                    <input type="range" id="profile-font-size" min="12" max="24" value="16">
-                    <span id="font-size-value">16px</span>
-                </div>
-                <div class="setting">
-                    <label for="profile-volume">Volume de la lecture vocale :</label>
-                    <input type="range" id="profile-volume" min="0" max="100" value="100">
-                    <span id="volume-value">100%</span>
-                </div>
+            </div>
+            <h3>Préférences</h3>
+            <label for="profile-language">Langue :</label>
+            <select id="profile-language">
+                <option value="fr">Français</option>
+                <option value="en">English</option>
+                <option value="ar">العربية</option>
+            </select>
+            <label for="profile-font-size">Taille de police :</label>
+            <input type="range" id="profile-font-size" min="12" max="24" value="16">
+            <span id="font-size-value">16px</span>
+            <label for="profile-volume">Volume :</label>
+            <input type="range" id="profile-volume" min="0" max="100" value="100">
+            <span id="volume-value">100%</span>
+            <label for="voice-select">Voix :</label>
+            <select id="voice-select"></select>
+            <label for="profile-theme">Mode sombre :</label>
+            <input type="checkbox" id="profile-theme">
+        </section>
+        <section id="preamble" class="chapter">
+            <button class="close-btn" title="Retour">✖</button>
+            <div class="chapter-header">
+                <h2>Préambule</h2>
+                <span class="favorite" data-chapter="preamble" title="Favoris">⭐</span>
+            </div>
+            <div class="content" data-lang="fr"></div>
+            <div class="content" data-lang="en" style="display: none;"></div>
+            <div class="content" data-lang="ar" style="display: none;"></div>
+            <div class="chapter-nav">
+                <button class="prev-btn">← Précédent</button>
+                <button class="next-btn">Suivant →</button>
             </div>
         </section>
+        <section id="foreword" class="chapter">
+            <button class="close-btn" title="Retour">✖</button>
+            <div class="chapter-header">
+                <h2>Avant-propos</h2>
+                <span class="favorite" data-chapter="foreword" title="Favoris">⭐</span>
+            </div>
+            <div class="content" data-lang="fr"></div>
+            <div class="content" data-lang="en" style="display: none;"></div>
+            <div class="content" data-lang="ar" style="display: none;"></div>
+            <div class="chapter-nav">
+                <button class="prev-btn">← Précédent</button>
+                <button class="next-btn">Suivant →</button>
+            </div>
+        </section>
+        <!-- Sections pour les chapitres 1 à 42 -->
     </main>
-
-    <!-- Bouton flottant de chat -->
-    <button id="chat-btn" title="Assistant IA">💬</button>
-
-    <!-- Modal de chat -->
     <div id="chat-modal" style="display: none;">
         <div class="chat-content">
-            <h3>Assistant de La Voie du Salut</h3>
-            <button class="chat-close-btn" title="Fermer">✖</button>
+            <button class="chat-close-btn">✖</button>
+            <h3>Chat</h3>
             <div id="chat-history"></div>
             <div class="chat-input">
                 <input type="text" id="chat-input" placeholder="Posez une question sur le livre...">
-                <button id="chat-send-btn">Envoyer</button>
-                <button id="chat-clear-btn" title="Effacer l'historique">🗑️</button>
+                <button id="chat-send-btn">➤</button>
+                <button id="chat-clear-btn">Effacer</button>
             </div>
         </div>
     </div>
-
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
     <script src="firebase.js"></script>
     <script src="book-content.js"></script>
     <script src="script.js"></script>
