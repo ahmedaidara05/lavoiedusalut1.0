@@ -52,6 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (volumeValue) volumeValue.textContent = `${volume}%`;
                     if (themeToggle) themeToggle.querySelector('.icon').textContent = data.theme === 'dark' ? '☀️' : '🌙';
                     if (profileTheme) profileTheme.checked = data.theme === 'dark';
+                    // Charger l'historique du chat
+                    loadChatHistory(user.uid);
                 }
             } catch (error) {
                 console.error('Erreur Firestore:', error);
@@ -68,7 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
             updateLanguage();
             updateFontSize();
             updateFavoritesList();
+            // Réinitialiser l'historique du chat pour les utilisateurs non connectés
+            chatHistory = [];
+            updateChatHistory();
         }
+        updateChatButtonVisibility();
     });
 
     // Gestion de l'inscription
@@ -213,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('section, section *').forEach(element => {
             element.style.fontSize = `${fontSize}px`;
         });
-        document.querySelectorAll('.prev-btn, .next-btn, .close-btn, .favorite').forEach(element => {
+        document.querySelectorAll('.prev-btn, .next-btn, .close-btn, .favorite, .chat-message').forEach(element => {
             element.style.fontSize = `${fontSize * 0.9}px`;
         });
     }
@@ -276,6 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Erreur mise à jour langue:', error);
             }
         }
+        updateChatButtonVisibility();
     }
 
     updateLanguage();
@@ -299,6 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Clic sommaire');
             sections.forEach(section => section.classList.remove('active'));
             document.getElementById('table-of-contents').classList.add('active');
+            updateChatButtonVisibility();
         });
     }
     if (startButton) {
@@ -306,6 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Clic commencer');
             sections.forEach(section => section.classList.remove('active'));
             document.getElementById('table-of-contents').classList.add('active');
+            updateChatButtonVisibility();
         });
     }
     if (profileButton) {
@@ -313,6 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Clic profil');
             sections.forEach(section => section.classList.remove('active'));
             document.getElementById('profile').classList.add('active');
+            updateChatButtonVisibility();
         });
     }
     closeButtons.forEach(button => {
@@ -325,6 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function goToHome() {
         sections.forEach(section => section.classList.remove('active'));
         document.getElementById('home').classList.add('active');
+        updateChatButtonVisibility();
     }
 
     const links = document.querySelectorAll('#chapter-list a, #favorites-list a');
@@ -335,6 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetId = link.getAttribute('href').substring(1);
             sections.forEach(section => section.classList.remove('active'));
             document.getElementById(targetId).classList.add('active');
+            updateChatButtonVisibility();
         });
     });
 
@@ -351,6 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (currentIndex > 0) {
                 sections.forEach(section => section.classList.remove('active'));
                 document.getElementById(chapters[currentIndex - 1]).classList.add('active');
+                updateChatButtonVisibility();
             }
         });
     });
@@ -363,6 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (currentIndex < chapters.length - 1) {
                 sections.forEach(section => section.classList.remove('active'));
                 document.getElementById(chapters[currentIndex + 1]).classList.add('active');
+                updateChatButtonVisibility();
             }
         });
     });
@@ -395,6 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const targetId = link.getAttribute('href').substring(1);
                     sections.forEach(section => section.classList.remove('active'));
                     document.getElementById(targetId).classList.add('active');
+                    updateChatButtonVisibility();
                 });
             });
             if (firebase.auth().currentUser) {
@@ -435,6 +450,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Clic favoris');
             sections.forEach(section => section.classList.remove('active'));
             document.getElementById('favorites').classList.add('active');
+            updateChatButtonVisibility();
         });
     }
 
@@ -527,6 +543,171 @@ document.addEventListener('DOMContentLoaded', () => {
                     currentSpeech = null;
                     currentChapter = null;
                 };
+            }
+        });
+    }
+
+    // Gestion du chat IA
+    const chatBtn = document.getElementById('chat-btn');
+    const chatModal = document.getElementById('chat-modal');
+    const chatCloseBtn = document.querySelector('.chat-close-btn');
+    const chatInput = document.getElementById('chat-input');
+    const chatSendBtn = document.getElementById('chat-send-btn');
+    const chatClearBtn = document.getElementById('chat-clear-btn');
+    const chatHistoryDiv = document.getElementById('chat-history');
+    let chatHistory = [];
+
+    function updateChatButtonVisibility() {
+        const activeSection = document.querySelector('section.active');
+        if (activeSection && (activeSection.id === 'table-of-contents' || chapters.includes(activeSection.id))) {
+            chatBtn.style.display = 'block';
+        } else {
+            chatBtn.style.display = 'none';
+        }
+    }
+
+    if (chatBtn) {
+        chatBtn.addEventListener('click', () => {
+            console.log('Clic chat IA');
+            chatModal.style.display = 'flex';
+            chatInput.focus();
+        });
+    }
+
+    if (chatCloseBtn) {
+        chatCloseBtn.addEventListener('click', () => {
+            console.log('Clic fermer chat');
+            chatModal.style.display = 'none';
+        });
+    }
+
+    async function loadChatHistory(userId) {
+        try {
+            const snapshot = await db.collection('users').doc(userId).collection('chat_history').orderBy('timestamp').get();
+            chatHistory = [];
+            snapshot.forEach(doc => {
+                const data = doc.data();
+                chatHistory.push({ user: data.user, assistant: data.assistant, timestamp: data.timestamp });
+            });
+            updateChatHistory();
+        } catch (error) {
+            console.error('Erreur chargement historique chat:', error);
+        }
+    }
+
+    function updateChatHistory() {
+        chatHistoryDiv.innerHTML = '';
+        chatHistory.forEach(message => {
+            const userDiv = document.createElement('div');
+            userDiv.className = 'chat-message user';
+            userDiv.textContent = message.user;
+            chatHistoryDiv.appendChild(userDiv);
+
+            const assistantDiv = document.createElement('div');
+            assistantDiv.className = 'chat-message assistant';
+            assistantDiv.textContent = message.assistant;
+            chatHistoryDiv.appendChild(assistantDiv);
+        });
+        chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
+    }
+
+    async function clearChatHistory() {
+        if (firebase.auth().currentUser) {
+            try {
+                const snapshot = await db.collection('users').doc(firebase.auth().currentUser.uid).collection('chat_history').get();
+                const batch = db.batch();
+                snapshot.forEach(doc => {
+                    batch.delete(doc.ref);
+                });
+                await batch.commit();
+                chatHistory = [];
+                updateChatHistory();
+            } catch (error) {
+                console.error('Erreur suppression historique chat:', error);
+            }
+        } else {
+            chatHistory = [];
+            updateChatHistory();
+        }
+    }
+
+    if (chatClearBtn) {
+        chatClearBtn.addEventListener('click', () => {
+            console.log('Clic effacer historique chat');
+            clearChatHistory();
+        });
+    }
+
+    async function sendChatMessage() {
+        const question = chatInput.value.trim();
+        if (!question) return;
+
+        chatHistory.push({ user: question, assistant: 'Chargement...', timestamp: Date.now() });
+        updateChatHistory();
+        chatInput.value = '';
+
+        // Collecter le contexte du livre
+        const bookContent = Array.from(document.querySelectorAll(`.content[data-lang="${currentLanguage}"]`))
+            .map(content => content.textContent)
+            .join('\n');
+
+        const prompt = `
+            Réponds uniquement aux questions liées au livre *L'Aube Nouvelle*. Utilise ce contexte : 
+            ${bookContent}
+            Si la question n’est pas liée au livre, réponds : "Je ne peux répondre qu’aux questions sur le livre."
+            Réponds en ${currentLanguage === 'fr' ? 'français' : currentLanguage === 'en' ? 'anglais' : 'arabe'}.
+            Question : ${question}
+        `;
+
+        try {
+            const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyA0vL0QgFDkAi-ScZDVKC1G5MgcFCURE1A', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    contents: [
+                        {
+                            parts: [
+                                { text: prompt }
+                            ]
+                        }
+                    ]
+                })
+            });
+
+            const data = await response.json();
+            const answer = data.candidates[0].content.parts[0].text.trim();
+
+            chatHistory[chatHistory.length - 1].assistant = answer;
+            updateChatHistory();
+
+            if (firebase.auth().currentUser) {
+                await db.collection('users').doc(firebase.auth().currentUser.uid).collection('chat_history').add({
+                    user: question,
+                    assistant: answer,
+                    timestamp: Date.now()
+                });
+            }
+        } catch (error) {
+            console.error('Erreur Gemini API:', error);
+            chatHistory[chatHistory.length - 1].assistant = 'Erreur lors de la réponse. Veuillez réessayer.';
+            updateChatHistory();
+        }
+    }
+
+    if (chatSendBtn) {
+        chatSendBtn.addEventListener('click', () => {
+            console.log('Clic envoyer message chat');
+            sendChatMessage();
+        });
+    }
+
+    if (chatInput) {
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                console.log('Entrée message chat');
+                sendChatMessage();
             }
         });
     }
