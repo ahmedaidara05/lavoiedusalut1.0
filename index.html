@@ -259,6 +259,20 @@
         </section>
     </main>
 
+        <!-- Bouton flottant et panneau de chat -->
+    <button id="chat-btn" title="Assistant IA" class="floating-btn">💬</button>
+    <div id="chat-panel" class="chat-panel">
+        <div class="chat-header">
+            <h3>Assistant du Livre</h3>
+            <button id="close-chat-btn" title="Fermer">✖</button>
+        </div>
+        <div id="chat-messages" class="chat-messages"></div>
+        <div class="chat-input">
+            <input type="text" id="chat-input" placeholder="Posez une question sur le livre...">
+            <button id="send-chat-btn" title="Envoyer">➤</button>
+        </div>
+    </div>
+
     <script src="firebase.js"></script>
     <script src="script.js"></script>
 </body>
