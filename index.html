@@ -3,279 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Application de lecture moderne avec mode sombre, zoom, favoris, lecture vocale, traduction et assistant IA">
-    <meta name="theme-color" content="#1e3a8a">
-    <title>Lecteur de Livre</title>
-    <link rel="icon" href="book-icon.png">
+    <title>La Voie du Salut - Détails</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&family=Plus+Jakarta+Sans&family=Readex+Pro:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="manifest" href="manifest.json">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Firebase SDK (version globale compat) -->
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <link rel="shortcut icon" href="book-icon.png" type="image/png">
 </head>
 <body>
-    <header>
-        <nav class="left-nav">
-            <button id="home-btn" title="Accueil">🏠</button>
-            <button id="menu-btn" title="Sommaire">☰</button>
-        </nav>
-        <div class="header-content">
-            <h1>Lecteur de Livre</h1>
-            <img src="book-cover.jpg" alt="Couverture du livre" class="header-book">
-        </div>
-        <nav class="right-nav">
-            <button id="theme-toggle" title="Mode sombre/clair">
-                <span class="icon">🌙</span>
-            </button>
-            <button id="voice-toggle" title="Lecture vocale">
-                <span class="icon">🔊</span>
-            </button>
-            <select id="voice-select" title="Choisir une voix"></select>
-            <button id="language-toggle" title="Changer de langue">
-                <span class="icon">🌐</span>
-            </button>
-            <button id="favorites-btn" title="Voir les favoris">⭐</button>
-            <button id="profile-btn" title="Profil">
-                <span class="icon">👤</span>
-                <span id="user-status" class="user-status"></span>
-            </button>
-        </nav>
-    </header>
-
-    <main>
-        <!-- Page d'accueil -->
-        <section id="home" class="active">
-            <div class="home-content">
-                <div class="home-text">
-                    <h2>Bienvenue dans votre Lecteur de Livre</h2>
-                    <p>Plongez dans une aventure captivante avec *L'Aube Nouvelle*, une histoire épique qui suit Clara...</p>
-                    <button id="start-btn">Commencer</button>
-                </div>
-                <img src="book-cover.jpg" alt="Couverture du livre" class="book-cover">
-            </div>
-        </section>
-
-        <!-- Sommaire -->
-        <section id="table-of-contents" class="chapter">
-            <button class="close-btn" title="Retour à l'accueil">✖</button>
-            <h2>Sommaire</h2>
-            <ul id="chapter-list">
-                <li><a href="#chapter1">Chapitre 1 : L'Aube Nouvelle</a></li>
-                <li><a href="#chapter2">Chapitre 2 : Les Ombres du Passé</a></li>
-                <li><a href="#chapter3">Chapitre 3 : Le Voyage Commence</a></li>
-                <li><a href="#chapter4">Chapitre 4 : Secrets Révélés</a></li>
-                <li><a href="#chapter5">Chapitre 5 : L'Horizon Lointain</a></li>
-            </ul>
-        </section>
-
-        <!-- Chapitre 1 -->
-        <section id="chapter1" class="chapter">
-            <button class="close-btn" title="Retour à l'accueil">✖</button>
-            <div class="chapter-header">
-                <h2>Chapitre 1 : L'Aube Nouvelle</h2>
-                <span class="favorite" data-chapter="chapter1" title="Ajouter aux favoris">⭐</span>
-            </div>
-            <div class="content" data-lang="fr">
-                <p>Le soleil se levait lentement sur les collines verdoyantes, annonçant un jour nouveau. Clara, une jeune aventurière, observait l’horizon avec espoir...</p>
-            </div>
-            <div class="content" data-lang="en" style="display: none;">
-                <p>The sun rose slowly over the lush hills, heralding a new day. Clara, a young adventurer, gazed at the horizon with hope...</p>
-            </div>
-            <div class="content" data-lang="ar" style="display: none;">
-                <p>كانت الشمس ترتفع ببطء فوق التلال الخضراء، معلنة عن يوم جديد. كلارا، المغامرة الشابة، كانت تنظر إلى الأفق بأمل...</p>
-            </div>
-            <div class="chapter-nav">
-                <button class="prev-btn" disabled>← Précédent</button>
-                <button class="next-btn">Suivant →</button>
-            </div>
-        </section>
-
-        <!-- Chapitre 2 -->
-        <section id="chapter2" class="chapter">
-            <button class="close-btn" title="Retour à l'accueil">✖</button>
-            <div class="chapter-header">
-                <h2>Chapitre 2 : Les Ombres du Passé</h2>
-                <span class="favorite" data-chapter="chapter2" title="Ajouter aux favoris">⭐</span>
-            </div>
-            <div class="content" data-lang="fr">
-                <p>Alors que Clara s'enfonçait dans la forêt dense, des souvenirs d'un passé oublié refaisaient surface...</p>
-            </div>
-            <div class="content" data-lang="en" style="display: none;">
-                <p>As Clara ventured deeper into the dense forest, memories of a forgotten past resurfaced...</p>
-            </div>
-            <div class="content" data-lang="ar" style="display: none;">
-                <p>بينما كانت كلارا تتعمق في الغابة الكثيفة، عادت ذكريات الماضي المنسي إلى السطح...</p>
-            </div>
-            <div class="chapter-nav">
-                <button class="prev-btn">← Précédent</button>
-                <button class="next-btn">Suivant →</button>
-            </div>
-        </section>
-
-        <!-- Chapitre 3 -->
-        <section id="chapter3" class="chapter">
-            <button class="close-btn" title="Retour à l'accueil">✖</button>
-            <div class="chapter-header">
-                <h2>Chapitre 3 : Le Voyage Commence</h2>
-                <span class="favorite" data-chapter="chapter3" title="Ajouter aux favoris">⭐</span>
-            </div>
-            <div class="content" data-lang="fr">
-                <p>Clara embarqua sur un vieux navire, prête à découvrir les secrets des mers lointaines...</p>
-            </div>
-            <div class="content" data-lang="en" style="display: none;">
-                <p>Clara boarded an old ship, ready to uncover the secrets of distant seas...</p>
-            </div>
-            <div class="content" data-lang="ar" style="display: none;">
-                <p>ركبت كلارا سفينة قديمة، مستعدة لاكتشاف أسرار البحار البعيدة...</p>
-            </div>
-            <div class="chapter-nav">
-                <button class="prev-btn">← Précédent</button>
-                <button class="next-btn">Suivant →</button>
-            </div>
-        </section>
-
-        <!-- Chapitre 4 -->
-        <section id="chapter4" class="chapter">
-            <button class="close-btn" title="Retour à l'accueil">✖</button>
-            <div class="chapter-header">
-                <h2>Chapitre 4 : Secrets Révélés</h2>
-                <span class="favorite" data-chapter="chapter4" title="Ajouter aux favoris">⭐</span>
-            </div>
-            <div class="content" data-lang="fr">
-                <p>Dans une ancienne bibliothèque, Clara trouva un manuscrit qui changea tout...</p>
-            </div>
-            <div class="content" data-lang="en" style="display: none;">
-                <p>In an ancient library, Clara found a manuscript that changed everything...</p>
-            </div>
-            <div class="content" data-lang="ar" style="display: none;">
-                <p>في مكتبة قديمة، وجدت كلارا مخطوطة غيرت كل شيء...</p>
-            </div>
-            <div class="chapter-nav">
-                <button class="prev-btn">← Précédent</button>
-                <button class="next-btn">Suivant →</button>
-            </div>
-        </section>
-
-        <!-- Chapitre 5 -->
-        <section id="chapter5" class="chapter">
-            <button class="close-btn" title="Retour à l'accueil">✖</button>
-            <div class="chapter-header">
-                <h2>Chapitre 5 : L'Horizon Lointain</h2>
-                <span class="favorite" data-chapter="chapter5" title="Ajouter aux favoris">⭐</span>
-            </div>
-            <div class="content" data-lang="fr">
-                <p>Clara atteignit enfin l'horizon, où un nouveau destin l'attendait...</p>
-            </div>
-            <div class="content" data-lang="en" style="display: none;">
-                <p>Clara finally reached the horizon, where a new destiny awaited...</p>
-            </div>
-            <div class="content" data-lang="ar" style="display: none;">
-                <p>وصلت كلارا أخيرًا إلى الأفق، حيث كان مصير جديد ينتظرها...</p>
-            </div>
-            <div class="chapter-nav">
-                <button class="prev-btn">← Précédent</button>
-                <button class="next-btn" disabled>Suivant →</button>
-            </div>
-        </section>
-
-        <!-- Page des favoris -->
-        <section id="favorites" class="chapter">
-            <button class="close-btn" title="Retour à l'accueil">✖</button>
-            <h2>Vos Chapitres Favoris</h2>
-            <ul id="favorites-list"></ul>
-        </section>
-
-        <!-- Page de profil -->
-        <section id="profile" class="chapter">
-            <button class="close-btn" title="Retour à l'accueil">✖</button>
-            <h2>Profil</h2>
-            <div class="profile-content">
-                <h3>Compte</h3>
-                <div id="user-info" style="display: none;">
-                    <p><strong>Nom :</strong> <span id="user-name"></span></p>
-                    <p><strong>E-mail :</strong> <span id="user-email"></span></p>
-                    <button id="sign-out-btn">Déconnexion</button>
-                </div>
-                <div id="auth-forms">
-                    <!-- Formulaire de connexion -->
-                    <h4>Connexion</h4>
-                    <form id="login-form">
-                        <div class="form-group">
-                            <label for="login-email">E-mail :</label>
-                            <input type="email" id="login-email" required>
+    <div class="scaffold">
+        <div class="background-container">
+            <div class="top-bar"></div>
+            <div class="bottom-content">
+                <h1 class="title">La Voie du Salut - Chercheur de Vérité</h1>
+                <div class="details-row">
+                    <div class="author-info">
+                        <div class="author">Ahmed Said Aidara</div>
+                        <div class="rating">
+                            <div class="rating-stars">★★★★☆</div>
+                            <div class="rating-value">4.7</div>
                         </div>
-                        <div class="form-group">
-                            <label for="login-password">Mot de passe :</label>
-                            <input type="password" id="login-password" required>
-                        </div>
-                        <button type="submit">Se connecter</button>
-                        <p><a href="#" id="reset-password">Mot de passe oublié ?</a></p>
-                    </form>
-                    <!-- Formulaire d'inscription -->
-                    <h4>Inscription</h4>
-                    <form id="signup-form">
-                        <div class="form-group">
-                            <label for="signup-name">Nom :</label>
-                            <input type="text" id="signup-name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="signup-email">E-mail :</label>
-                            <input type="email" id="signup-email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="signup-password">Mot de passe :</label>
-                            <input type="password" id="signup-password" required>
-                        </div>
-                        <button type="submit">S'inscrire</button>
-                    </form>
+                    </div>
+                    <div class="start-button" id="startButton">Commencer</div>
                 </div>
-                <p id="auth-error" style="color: red;"></p>
-                <h3>Paramètres</h3>
-                <div class="setting">
-                    <label for="profile-language">Langue :</label>
-                    <select id="profile-language">
-                        <option value="fr">Français</option>
-                        <option value="en">English</option>
-                        <option value="ar">العربية</option>
-                    </select>
-                </div>
-                <div class="setting">
-                    <label for="profile-theme">Mode sombre :</label>
-                    <input type="checkbox" id="profile-theme">
-                </div>
-                <div class="setting">
-                    <label for="profile-font-size">Taille de la police :</label>
-                    <input type="range" id="profile-font-size" min="12" max="24" value="16">
-                    <span id="font-size-value">16px</span>
-                </div>
-                <div class="setting">
-                    <label for="profile-volume">Volume de la lecture vocale :</label>
-                    <input type="range" id="profile-volume" min="0" max="100" value="100">
-                    <span id="volume-value">100%</span>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Bouton flottant de chat -->
-    <button id="chat-btn" title="Assistant IA">💬</button>
-
-    <!-- Modal de chat -->
-    <div id="chat-modal" style="display: none;">
-        <div class="chat-content">
-            <h3>Assistant du Livre</h3>
-            <button class="chat-close-btn" title="Fermer">✖</button>
-            <div id="chat-history"></div>
-            <div class="chat-input">
-                <input type="text" id="chat-input" placeholder="Posez une question sur le livre...">
-                <button id="chat-send-btn">Envoyer</button>
-                <button id="chat-clear-btn" title="Effacer l'historique">🗑️</button>
+                <div class="section-label">Description</div>
+                <p class="description">
+                    Imaginez un livre qui ne se contente pas de vous raconter une histoire, 
+                    mais qui vous guide pas à pas vers la compréhension profonde des mystères 
+                    de la vie. Ce livre est une boussole spirituelle, une lumière dans les 
+                    ténèbres de l'ignorance. À travers ses pages, vous découvrirez des vérités 
+                    cachées et des enseignements précieux qui transformeront votre perception 
+                    du monde et de votre existence.
+                </p>
             </div>
         </div>
     </div>
-
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"></script>
     <script src="firebase.js"></script>
     <script src="script.js"></script>
 </body>
