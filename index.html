@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Application de lecture moderne pour La Voie du Salut avec mode sombre, zoom, favoris, lecture vocale, traduction et assistant IA">
+    <meta name="description" content="Application de lecture pour 'La Voie du Salut' avec mode sombre, zoom, favoris, lecture vocale, traduction et assistant IA">
     <meta name="theme-color" content="#1e3a8a">
     <title>La Voie du Salut</title>
     <link rel="icon" href="book-icon.png">
@@ -50,7 +50,7 @@
             <div class="home-content">
                 <div class="home-text">
                     <h2>Bienvenue dans La Voie du Salut</h2>
-                    <p>Plongez dans une œuvre spirituelle et inspirante qui guide l’âme vers la lumière et la vérité...</p>
+                    <p>Plongez dans une épopée spirituelle et captivante avec *La Voie du Salut*, une œuvre d’Ahmed Said Aidara qui guide les âmes vers la lumière...</p>
                     <button id="start-btn">Commencer</button>
                 </div>
                 <img src="book-cover.jpg" alt="Couverture du livre" class="book-cover">
@@ -64,12 +64,10 @@
             <ul id="chapter-list">
                 <li><a href="#preamble">Préambule</a></li>
                 <li><a href="#foreword">Avant-propos</a></li>
-                <li><a href="#chapter1">Chapitre 1 : Le Chemin de la Lumière</a></li>
-                <li><a href="#chapter2">Chapitre 2 : Les Épreuves de l’Âme</a></li>
-                <li><a href="#chapter3">Chapitre 3 : La Quête de la Vérité</a></li>
-                <li><a href="#chapter4">Chapitre 4 : L’Appel Intérieur</a></li>
-                <!-- ... Ajouter dynamiquement les autres chapitres dans script.js ... -->
-                <li><a href="#chapter42">Chapitre 42 : La Paix Éternelle</a></li>
+                <li><a href="#chapter1">Chapitre 1 : Le Premier Pas</a></li>
+                <li><a href="#chapter2">Chapitre 2 : Les Échos de l’Âme</a></li>
+                <!-- ... 40 autres chapitres générés dynamiquement dans script.js ... -->
+                <li><a href="#chapter42">Chapitre 42 : La Lumière Éternelle</a></li>
             </ul>
         </section>
 
@@ -109,7 +107,7 @@
         <section id="chapter1" class="chapter">
             <button class="close-btn" title="Retour à l'accueil">✖</button>
             <div class="chapter-header">
-                <h2>Chapitre 1 : Le Chemin de la Lumière</h2>
+                <h2>Chapitre 1 : Le Premier Pas</h2>
                 <span class="favorite" data-chapter="chapter1" title="Ajouter aux favoris">⭐</span>
             </div>
             <div class="content" data-lang="fr"></div>
@@ -121,62 +119,13 @@
             </div>
         </section>
 
-        <!-- Chapitre 2 -->
-        <section id="chapter2" class="chapter">
-            <button class="close-btn" title="Retour à l'accueil">✖</button>
-            <div class="chapter-header">
-                <h2>Chapitre 2 : Les Épreuves de l’Âme</h2>
-                <span class="favorite" data-chapter="chapter2" title="Ajouter aux favoris">⭐</span>
-            </div>
-            <div class="content" data-lang="fr"></div>
-            <div class="content" data-lang="en" style="display: none;"></div>
-            <div class="content" data-lang="ar" style="display: none;"></div>
-            <div class="chapter-nav">
-                <button class="prev-btn">← Précédent</button>
-                <button class="next-btn">Suivant →</button>
-            </div>
-        </section>
-
-        <!-- Chapitre 3 -->
-        <section id="chapter3" class="chapter">
-            <button class="close-btn" title="Retour à l'accueil">✖</button>
-            <div class="chapter-header">
-                <h2>Chapitre 3 : La Quête de la Vérité</h2>
-                <span class="favorite" data-chapter="chapter3" title="Ajouter aux favoris">⭐</span>
-            </div>
-            <div class="content" data-lang="fr"></div>
-            <div class="content" data-lang="en" style="display: none;"></div>
-            <div class="content" data-lang="ar" style="display: none;"></div>
-            <div class="chapter-nav">
-                <button class="prev-btn">← Précédent</button>
-                <button class="next-btn">Suivant →</button>
-            </div>
-        </section>
-
-        <!-- Chapitre 4 -->
-        <section id="chapter4" class="chapter">
-            <button class="close-btn" title="Retour à l'accueil">✖</button>
-            <div class="chapter-header">
-                <h2>Chapitre 4 : L’Appel Intérieur</h2>
-                <span class="favorite" data-chapter="chapter4" title="Ajouter aux favoris">⭐</span>
-            </div>
-            <div class="content" data-lang="fr"></div>
-            <div class="content" data-lang="en" style="display: none;"></div>
-            <div class="content" data-lang="ar" style="display: none;"></div>
-            <div class="chapter-nav">
-                <button class="prev-btn">← Précédent</button>
-                <button class="next-btn">Suivant →</button>
-            </div>
-        </section>
-
-        <!-- Placeholder pour les autres chapitres -->
-        <!-- Les sections des chapitres 5 à 42 sont ajoutées dynamiquement dans script.js -->
+        <!-- ... Chapitres 2 à 41 générés dynamiquement dans script.js ... -->
 
         <!-- Chapitre 42 -->
         <section id="chapter42" class="chapter">
             <button class="close-btn" title="Retour à l'accueil">✖</button>
             <div class="chapter-header">
-                <h2>Chapitre 42 : La Paix Éternelle</h2>
+                <h2>Chapitre 42 : La Lumière Éternelle</h2>
                 <span class="favorite" data-chapter="chapter42" title="Ajouter aux favoris">⭐</span>
             </div>
             <div class="content" data-lang="fr"></div>
@@ -271,7 +220,7 @@
     <!-- Modal de chat -->
     <div id="chat-modal" style="display: none;">
         <div class="chat-content">
-            <h3>Assistant du Livre</h3>
+            <h3>Assistant de La Voie du Salut</h3>
             <button class="chat-close-btn" title="Fermer">✖</button>
             <div id="chat-history"></div>
             <div class="chat-input">
@@ -283,7 +232,7 @@
     </div>
 
     <script src="firebase.js"></script>
-    <script src="content.js"></script>
+    <script src="book-content.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
