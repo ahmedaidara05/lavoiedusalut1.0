@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Application de lecture moderne avec mode sombre, zoom, favoris, lecture vocale et traduction">
+    <meta name="description" content="Application de lecture moderne avec mode sombre, zoom, favoris, lecture vocale, traduction et assistant IA">
     <meta name="theme-color" content="#1e3a8a">
     <title>Lecteur de Livre</title>
     <link rel="icon" href="book-icon.png">
@@ -259,17 +259,20 @@
         </section>
     </main>
 
-        <!-- Bouton flottant et panneau de chat -->
-    <button id="chat-btn" title="Assistant IA" class="floating-btn">💬</button>
-    <div id="chat-panel" class="chat-panel">
-        <div class="chat-header">
+    <!-- Bouton flottant de chat -->
+    <button id="chat-btn" title="Assistant IA">💬</button>
+
+    <!-- Modal de chat -->
+    <div id="chat-modal" style="display: none;">
+        <div class="chat-content">
             <h3>Assistant du Livre</h3>
-            <button id="close-chat-btn" title="Fermer">✖</button>
-        </div>
-        <div id="chat-messages" class="chat-messages"></div>
-        <div class="chat-input">
-            <input type="text" id="chat-input" placeholder="Posez une question sur le livre...">
-            <button id="send-chat-btn" title="Envoyer">➤</button>
+            <button class="chat-close-btn" title="Fermer">✖</button>
+            <div id="chat-history"></div>
+            <div class="chat-input">
+                <input type="text" id="chat-input" placeholder="Posez une question sur le livre...">
+                <button id="chat-send-btn">Envoyer</button>
+                <button id="chat-clear-btn" title="Effacer l'historique">🗑️</button>
+            </div>
         </div>
     </div>
 
