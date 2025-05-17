@@ -1,20 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Vérifications initiales
     if (!window.firebase) {
-        console.error('Erreur : Firebase SDK non chargé. Ajoutez firebase.js avant script.js dans index.html.');
+        console.error('Erreur : Firebase SDK non chargé. Ajoutez firebase.js avant script.js.');
         return;
     }
-    if (!window.bookContent) {
+    if (!window.chapters) {
         console.error('Erreur : book-content.js non chargé ou incorrect. Vérifiez le fichier.');
         return;
     }
 
     // Protection contre le copier-coller
-    document.addEventListener('contextmenu', (e) => e.preventDefault());
-    document.addEventListener('copy', (e) => e.preventDefault());
-    document.addEventListener('cut', (e) => e.preventDefault());
-    document.addEventListener('dragstart', (e) => e.preventDefault());
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('copy', e => e.preventDefault());
+    document.addEventListener('cut', e => e.preventDefault());
+    document.addEventListener('dragstart', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
         if (e.ctrlKey && (e.key === 'p' || e.key === 's')) e.preventDefault();
     });
 
@@ -26,41 +26,20 @@ document.addEventListener('DOMContentLoaded', () => {
     let progress = JSON.parse(localStorage.getItem('progress')) || {};
     let chatHistory = [];
     let currentSpeech = null;
-    const sections = ['preamble', 'foreword'];
+    const sections = ['preamble', 'foreword'].concat(chapters.map(c => `chapter${c.chapter}`));
 
-    // Générer le sommaire et les chapitres
-    const chapterList = document.getElementById('chapter-list');
+    // Générer les sections des chapitres dynamiquement
     const main = document.querySelector('main');
-    console.log('Génération du sommaire...');
-    chapterList.innerHTML = '';
-    ['preamble', 'foreword'].forEach(id => {
-        const li = document.createElement('li');
-        li.innerHTML = `<a href="#${id}">${bookContent[id].title.fr}</a>`;
-        chapterList.appendChild(li);
-    });
-    bookContent.chapters.forEach(chapter => {
-        sections.push(chapter.id);
-        const li = document.createElement('li');
-        li.innerHTML = `<a href="#${chapter.id}">${chapter.title.fr}</a>`;
-        chapterList.appendChild(li);
-    });
-
-    // Générer les chapitres 2 à 41
-    console.log('Génération des chapitres 2 à 41...');
-    for (let i = 2; i <= 41; i++) {
-        const chapter = bookContent.chapters.find(c => c.id === `chapter${i}`);
-        if (!chapter) {
-            console.warn(`Chapitre ${i} manquant dans bookContent.chapters.`);
-            continue;
-        }
+    console.log('Génération des sections des chapitres...');
+    chapters.forEach(chapter => {
         const section = document.createElement('section');
-        section.id = chapter.id;
+        section.id = `chapter${chapter.chapter}`;
         section.className = 'chapter';
         section.innerHTML = `
             <button class="close-btn" title="Retour">✖</button>
             <div class="chapter-header">
-                <h2>${chapter.title.fr}</h2>
-                <span class="favorite" data-chapter="${chapter.id}" title="Favoris">⭐</span>
+                <h2>Chapitre ${chapter.chapter}</h2>
+                <span class="favorite" data-chapter="chapter${chapter.chapter}" title="Favoris">⭐</span>
             </div>
             <div class="content" data-lang="fr"></div>
             <div class="content" data-lang="en" style="display: none;"></div>
@@ -70,39 +49,67 @@ document.addEventListener('DOMContentLoaded', () => {
                 <button class="next-btn">Suivant →</button>
             </div>
         `;
-        const chapter42 = document.getElementById('chapter42');
-        if (chapter42) main.insertBefore(section, chapter42);
-        else console.error('Erreur : chapter42 non trouvé dans le DOM.');
-    }
+        main.appendChild(section);
+    });
+
+    // Générer le sommaire
+    const chapterList = document.getElementById('chapter-list');
+    console.log('Génération du sommaire...');
+    chapterList.innerHTML = '';
+    ['preamble', 'foreword'].forEach(id => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="#${id}">${id === 'preamble' ? 'Préambule' : 'Avant-propos'}</a>`;
+        chapterList.appendChild(li);
+    });
+    chapters.forEach(chapter => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="#chapter${chapter.chapter}">Chapitre ${chapter.chapter}</a>`;
+        chapterList.appendChild(li);
+    });
 
     // Charger le contenu
     function loadBookContent() {
         console.log('Chargement du contenu...');
-        ['preamble', 'foreword'].forEach(id => {
-            const section = document.getElementById(id);
+        const preamble = document.getElementById('preamble');
+        const foreword = document.getElementById('foreword');
+        if (preamble) {
+            preamble.querySelector('.content[data-lang="fr"]').innerHTML = `
+                <p>Ce livre est une quête vers la lumière intérieure. Chaque page vous invite à réfléchir, à ressentir, à grandir.</p>
+                <p>Ahmed Said Aidara vous guide avec des mots simples mais profonds, éclairant le chemin du salut.</p>
+            `;
+            preamble.querySelector('.content[data-lang="en"]').innerHTML = `
+                <p>This book is a quest for inner light. Each page invites you to reflect, feel, and grow.</p>
+                <p>Ahmed Said Aidara guides you with simple yet profound words, illuminating the path to salvation.</p>
+            `;
+            preamble.querySelector('.content[data-lang="ar"]').innerHTML = `
+                <p>هذا الكتاب هو رحلة نحو النور الداخلي. كل صفحة تدعوك للتفكير، الشعور، والنمو.</p>
+                <p>أحمد سعيد أيدارا يرشدك بكلمات بسيطة ولكنها عميقة، مضيئًا طريق الخلاص.</p>
+            `;
+        } else console.error('Section preamble non trouvée.');
+        if (foreword) {
+            foreword.querySelector('.content[data-lang="fr"]').innerHTML = `
+                <p>Avant de commencer, ouvrez votre cœur. Ce voyage est personnel, mais universel.</p>
+                <p>Chaque chapitre est une étape vers la paix intérieure et la compréhension divine.</p>
+            `;
+            foreword.querySelector('.content[data-lang="en"]').innerHTML = `
+                <p>Before you begin, open your heart. This journey is personal, yet universal.</p>
+                <p>Each chapter is a step toward inner peace and divine understanding.</p>
+            `;
+            foreword.querySelector('.content[data-lang="ar"]').innerHTML = `
+                <p>قبل أن تبدأ، افتح قلبك. هذه الرحلة شخصية، لكنها عالمية.</p>
+                <p>كل فصل خطوة نحو السلام الداخلي والفهم الإلهي.</p>
+            `;
+        } else console.error('Section foreword non trouvée.');
+        chapters.forEach(chapter => {
+            const section = document.getElementById(`chapter${chapter.chapter}`);
             if (!section) {
-                console.error(`Section ${id} non trouvée.`);
+                console.error(`Section chapter${chapter.chapter} non trouvée.`);
                 return;
             }
-            const content = bookContent[id];
-            if (!content?.content) {
-                console.error(`Contenu pour ${id} non défini.`);
-                section.querySelector('.content[data-lang="fr"]').innerHTML = '<p>Erreur : contenu manquant.</p>';
-                return;
-            }
-            section.querySelector('.content[data-lang="fr"]').innerHTML = content.content.fr || '<p>Contenu FR manquant.</p>';
-            section.querySelector('.content[data-lang="en"]').innerHTML = content.content.en || '<p>Contenu EN manquant.</p>';
-            section.querySelector('.content[data-lang="ar"]').innerHTML = content.content.ar || '<p>Contenu AR manquant.</p>';
-        });
-        bookContent.chapters.forEach(chapter => {
-            const section = document.getElementById(chapter.id);
-            if (!section) {
-                console.error(`Section ${chapter.id} non trouvée.`);
-                return;
-            }
-            section.querySelector('.content[data-lang="fr"]').innerHTML = chapter.content.fr || '<p>Contenu FR manquant.</p>';
-            section.querySelector('.content[data-lang="en"]').innerHTML = chapter.content.en || '<p>Contenu EN manquant.</p>';
-            section.querySelector('.content[data-lang="ar"]').innerHTML = chapter.content.ar || '<p>Contenu AR manquant.</p>';
+            section.querySelector('.content[data-lang="fr"]').innerHTML = `<p>${chapter.fr}</p>`;
+            section.querySelector('.content[data-lang="en"]').innerHTML = `<p>${chapter.en}</p>`;
+            section.querySelector('.content[data-lang="ar"]').innerHTML = `<p>${chapter.ar}</p>`;
+            section.querySelector('h2').textContent = `Chapitre ${chapter.chapter}`;
         });
     }
 
@@ -319,23 +326,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         document.querySelectorAll('#chapter-list a').forEach(link => {
             const id = link.getAttribute('href').substring(1);
-            if (id === 'preamble') link.textContent = bookContent.preamble.title[currentLanguage];
-            else if (id === 'foreword') link.textContent = bookContent.foreword.title[currentLanguage];
-            else {
-                const chapter = bookContent.chapters.find(c => c.id === id);
-                if (chapter) link.textContent = chapter.title[currentLanguage];
-            }
+            if (id === 'preamble') link.textContent = currentLanguage === 'fr' ? 'Préambule' : currentLanguage === 'en' ? 'Preamble' : 'المقدمة';
+            else if (id === 'foreword') link.textContent = currentLanguage === 'fr' ? 'Avant-propos' : currentLanguage === 'en' ? 'Foreword' : 'التمهيد';
+            else link.textContent = id;
         });
         sections.forEach(id => {
             const section = document.getElementById(id);
-            if (section) {
+            if (section && id !== 'preamble' && id !== 'foreword') {
                 const header = section.querySelector('h2');
-                if (id === 'preamble') header.textContent = bookContent.preamble.title[currentLanguage];
-                else if (id === 'foreword') header.textContent = bookContent.foreword.title[currentLanguage];
-                else {
-                    const chapter = bookContent.chapters.find(c => c.id === id);
-                    if (chapter) header.textContent = chapter.title[currentLanguage];
-                }
+                const num = id.replace('chapter', '');
+                header.textContent = currentLanguage === 'fr' ? `Chapitre ${num}` :
+                                    currentLanguage === 'en' ? `Chapter ${num}` :
+                                    `الفصل ${num}`;
             }
         });
         localStorage.setItem('language', currentLanguage);
@@ -431,9 +433,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const favoritesList = document.getElementById('favorites-list');
         favoritesList.innerHTML = '';
         favorites.forEach(id => {
-            const title = id === 'preamble' ? bookContent.preamble.title[currentLanguage] :
-                         id === 'foreword' ? bookContent.foreword.title[currentLanguage] :
-                         bookContent.chapters.find(c => c.id === id)?.title[currentLanguage] || '';
+            const title = id === 'preamble' ? (currentLanguage === 'fr' ? 'Préambule' : currentLanguage === 'en' ? 'Preamble' : 'المقدمة') :
+                         id === 'foreword' ? (currentLanguage === 'fr' ? 'Avant-propos' : currentLanguage === 'en' ? 'Foreword' : 'التمهيد') :
+                         currentLanguage === 'fr' ? `Chapitre ${id.replace('chapter', '')}` :
+                         currentLanguage === 'en' ? `Chapter ${id.replace('chapter', '')}` :
+                         `الفصل ${id.replace('chapter', '')}`;
             const li = document.createElement('li');
             li.innerHTML = `<a href="#${id}">${title}</a><div class="progress-bar"><div class="progress" style="width: ${progress[id] || 0}%"></div></div>`;
             favoritesList.appendChild(li);
@@ -531,12 +535,16 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         const id = activeSection.id;
-        let text = id === 'preamble' ? bookContent.preamble.content[currentLanguage] :
-                  id === 'foreword' ? bookContent.foreword.content[currentLanguage] :
-                  bookContent.chapters.find(c => c.id === id)?.content[currentLanguage] || '';
-        const div = document.createElement('div');
-        div.innerHTML = text;
-        text = div.textContent;
+        let text = '';
+        if (id === 'preamble') {
+            text = activeSection.querySelector(`.content[data-lang="${currentLanguage}"]`).textContent;
+        } else if (id === 'foreword') {
+            text = activeSection.querySelector(`.content[data-lang="${currentLanguage}"]`).textContent;
+        } else {
+            const chapterNum = parseInt(id.replace('chapter', ''));
+            const chapter = chapters.find(c => c.chapter === chapterNum);
+            text = chapter ? chapter[currentLanguage] : '';
+        }
         if (!text) {
             console.error(`Aucun texte pour ${id}.`);
             return;
@@ -596,10 +604,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     function getBookContext() {
         let context = '';
-        context += `${bookContent.preamble.title[currentLanguage]}:\n${bookContent.preamble.content[currentLanguage].replace(/<[^>]+>/g, '')}\n\n`;
-        context += `${bookContent.foreword.title[currentLanguage]}:\n${bookContent.foreword.content[currentLanguage].replace(/<[^>]+>/g, '')}\n\n`;
-        bookContent.chapters.forEach(chapter => {
-            context += `${chapter.title[currentLanguage]}:\n${chapter.content[currentLanguage].replace(/<[^>]+>/g, '')}\n\n`;
+        context += `Préambule:\n${document.getElementById('preamble')?.querySelector('.content[data-lang="fr"]').textContent}\n\n`;
+        context += `Avant-propos:\n${document.getElementById('foreword')?.querySelector('.content[data-lang="fr"]').textContent}\n\n`;
+        chapters.forEach(chapter => {
+            context += `Chapitre ${chapter.chapter}:\n${chapter.fr}\n\n`;
         });
         return context;
     }
