@@ -1,123 +1,254 @@
-// Contenu du livre "La Voie du Salut" (exemple fictif)
-const bookContent = {
-    preamble: {
-        title: {
-            fr: "Préambule",
-            en: "Preamble",
-            ar: "المقدمة"
-        },
-        content: {
-            fr: `
-                <p>Le voyage vers la vérité commence par un pas humble, une volonté de chercher au-delà des ombres du quotidien. *La Voie du Salut* est plus qu’un livre ; c’est une invitation à explorer les profondeurs de l’âme humaine et à découvrir la lumière qui réside en chacun de nous. Ce préambule pose les fondations d’une quête spirituelle, où chaque chapitre est une étape vers l’éveil.</p>
-                <p>Dans un monde marqué par le chaos et l’incertitude, l’auteur, Ahmed Said Aidara, propose une réflexion intemporelle sur la foi, l’espoir et la résilience. Ce texte s’adresse à ceux qui osent questionner, à ceux qui cherchent un sens plus grand. Préparez-vous à un voyage intérieur, où chaque mot est une lanterne dans l’obscurité.</p>
-            `,
-            en: `
-                <p>The journey toward truth begins with a humble step, a willingness to seek beyond the shadows of daily life. *The Path to Salvation* is more than a book; it is an invitation to explore the depths of the human soul and discover the light within each of us. This preamble lays the foundation for a spiritual quest, where each chapter is a step toward awakening.</p>
-                <p>In a world marked by chaos and uncertainty, the author, Ahmed Said Aidara, offers a timeless reflection on faith, hope, and resilience. This text speaks to those who dare to question, to those seeking a greater meaning. Prepare for an inner journey, where every word is a lantern in the darkness.</p>
-            `,
-            ar: `
-                <p>تبدأ الرحلة نحو الحقيقة بخطوة متواضعة، برغبة في البحث وراء ظلال الحياة اليومية. *طريق الخلاص* ليس مجرد كتاب؛ بل هو دعوة لاستكشاف أعماق الروح البشرية واكتشاف النور الكامن في كل منا. هذه المقدمة تضع الأساس لسعي روحي، حيث كل فصل هو خطوة نحو اليقظة.</p>
-                <p>في عالم يعمه الفوضى وعدم اليقين، يقدم المؤلف، أحمد سعيد أيدارا، تأملاً خالداً حول الإيمان والأمل والصمود. هذا النص يخاطب أولئك الذين يجرؤون على التساؤل، أولئك الذين يبحثون عن معنى أعظم. استعد لرحلة داخلية، حيث كل كلمة هي فانوس في الظلام.</p>
-            `
-        }
-    },
-    foreword: {
-        title: {
-            fr: "Avant-propos",
-            en: "Foreword",
-            ar: "التمهيد"
-        },
-        content: {
-            fr: `
-                <p>Cher lecteur, ce livre est né d’un désir profond de partager une vision d’espoir et de guidance. *La Voie du Salut* n’est pas un simple récit, mais un compagnon pour ceux qui cherchent à comprendre leur place dans l’univers. Chaque chapitre est conçu pour éclairer un aspect de la condition humaine, de la lutte intérieure à la paix extérieure.</p>
-                <p>En écrivant ce livre, j’ai puisé dans les enseignements de la vie, les expériences des âmes croisées sur mon chemin, et une foi inébranlable en un avenir meilleur. Que ce texte soit pour vous une source d’inspiration, un miroir de vos propres aspirations, et un guide vers la sérénité.</p>
-            `,
-            en: `
-                <p>Dear reader, this book was born from a deep desire to share a vision of hope and guidance. *The Path to Salvation* is not merely a story, but a companion for those seeking to understand their place in the universe. Each chapter is designed to illuminate an aspect of the human condition, from inner struggles to outer peace.</p>
-                <p>In writing this book, I drew from life’s teachings, the experiences of souls I’ve met along the way, and an unwavering faith in a brighter future. May this text be a source of inspiration, a mirror of your own aspirations, and a guide toward serenity.</p>
-            `,
-            ar: `
-                <p>أيها القارئ العزيز، ولد هذا الكتاب من رغبة عميقة في مشاركة رؤية الأمل والهداية. *طريق الخلاص* ليس مجرد قصة، بل رفيق لمن يسعون لفهم مكانهم في الكون. تم تصميم كل فصل لإلقاء الضوء على جانب من جوانب الحالة البشرية، من الصراعات الداخلية إلى السلام الخارجي.</p>
-                <p>في كتابة هذا الكتاب، استمددت من تعاليم الحياة، وتجارب الأرواح التي قابلتها في طريقي، وإيمان لا يتزعزع بمستقبل أفضل. فليكن هذا النص مصدر إلهام لك، ومرآة لطموحاتك الخاصة، ودليلًا نحو الصفاء.</p>
-            `
-        }
-    },
-    chapters: [
-        {
-            id: "chapter1",
-            title: {
-                fr: "Chapitre 1 : Le Premier Pas",
-                en: "Chapter 1: The First Step",
-                ar: "الفصل الأول: الخطوة الأولى"
-            },
-            content: {
-                fr: `
-                    <p>Amadou se tenait au sommet d’une colline, le vent caressant son visage fatigué. Il avait marché pendant des jours, guidé par une étoile qu’il voyait dans ses rêves. Cette étoile, disait-il, était le signe d’un destin plus grand. Mais aujourd’hui, ses doutes pesaient lourd. Était-il vraiment sur la bonne voie ?</p>
-                    <p>La vallée en contrebas s’étendait, verdoyante et pleine de promesses. Pourtant, Amadou savait que chaque pas vers l’inconnu était un défi. Il se remémora les paroles de son maître : « La vérité ne se trouve pas en restant immobile. » Prenant une profonde inspiration, il descendit la colline, déterminé à poursuivre.</p>
-                    <p>Sur son chemin, il rencontra une vieille femme assise près d’un puits. Elle lui offrit de l’eau et un sourire. « Où vas-tu, voyageur ? » demanda-t-elle. Amadou hésita, puis répondit : « Je cherche la lumière. » La femme hocha la tête, comme si elle comprenait. « Alors, souviens-toi : la lumière est déjà en toi. »</p>
-                `,
-                en: `
-                    <p>Amadou stood atop a hill, the wind brushing his weary face. He had walked for days, guided by a star he saw in his dreams. That star, he said, was the sign of a greater destiny. But today, his doubts weighed heavily. Was he truly on the right path?</p>
-                    <p>The valley below stretched out, green and full of promise. Yet, Amadou knew that each step into the unknown was a challenge. He recalled his master’s words: “Truth is not found by standing still.” Taking a deep breath, he descended the hill, determined to press on.</p>
-                    <p>Along the way, he met an old woman sitting by a well. She offered him water and a smile. “Where are you going, traveler?” she asked. Amadou hesitated, then replied, “I seek the light.” The woman nodded, as if she understood. “Then remember: the light is already within you.”</p>
-                `,
-                ar: `
-                    <p>وقف أمادو على قمة تل، والريح تداعب وجهه المتعب. كان قد سار لأيام، يهديه نجم رآه في أحلامه. هذا النجم، كما قال، كان علامة على مصير أعظم. لكن اليوم، كانت شكوكه تثقل كاهله. هل كان حقًا على الطريق الصحيح؟</p>
-                    <p>امتد الوادي أدناه، أخضر ومليء بالوعود. ومع ذلك، كان أمادو يعلم أن كل خطوة نحو المجهول هي تحدٍ. تذكر كلمات أستاذه: "الحقيقة لا تُوجد بالوقوف ساكنًا." أخذ نفسًا عميقًا، ونزل التل، مصممًا على الاستمرار.</p>
-                    <p>في طريقه، التقى بامرأة عجوز جالسة بالقرب من بئر. قدمت له الماء وابتسامة. "إلى أين أنت ذاهب، أيها المسافر؟" سألت. تردد أمادو، ثم أجاب: "أبحث عن النور." أومأت المرأة برأسها، كما لو أنها فهمت. "إذن تذكر: النور موجود بالفعل داخلك."</p>
-                `
-            }
-        },
-        {
-            id: "chapter2",
-            title: {
-                fr: "Chapitre 2 : Les Échos de l’Âme",
-                en: "Chapter 2: Echoes of the Soul",
-                ar: "الفصل الثاني: أصداء الروح"
-            },
-            content: {
-                fr: `
-                    <p>La nuit était tombée, et Amadou s’était arrêté dans une clairière. Autour d’un feu modeste, il écoutait le chant des grillons. Mais ce n’était pas le seul son qui l’entourait. Dans son esprit, des voix anciennes murmuraient, des souvenirs qu’il ne comprenait pas encore.</p>
-                    <p>Il sortit un vieux carnet, hérité de son père. Les pages jaunies contenaient des poèmes et des proverbes, chacun semblant porter une leçon. L’un d’eux disait : « L’âme parle quand le cœur est silencieux. » Amadou ferma les yeux, essayant d’écouter cette voix intérieure.</p>
-                    <p>Alors qu’il méditait, une vision lui apparut : une rivière scintillante, bordée d’arbres dorés. Une voix douce lui parla : « Suis le courant, mais n’oublie pas d’où tu viens. » Lorsqu’il rouvrit les yeux, le feu crépitait toujours, mais il se sentait changé.</p>
-                `,
-                en: `
-                    <p>Night had fallen, and Amadou had stopped in a clearing. Around a modest fire, he listened to the crickets’ song. But it wasn’t the only sound surrounding him. In his mind, ancient voices whispered, memories he didn’t yet understand.</p>
-                    <p>He took out an old notebook, inherited from his father. The yellowed pages held poems and proverbs, each seeming to carry a lesson. One read: “The soul speaks when the heart is silent.” Amadou closed his eyes, trying to listen to that inner voice.</p>
-                    <p>As he meditated, a vision came to him: a shimmering river, lined with golden trees. A gentle voice spoke: “Follow the current, but do not forget where you came from.” When he opened his eyes, the fire still crackled, but he felt transformed.</p>
-                `,
-                ar: `
-                    <p>حل الليل، وتوقف أمادو في مكان مفتوح. حول نار متواضعة، استمع إلى أغنية الصراصير. لكنها لم تكن الأصوات الوحيدة التي تحيط به. في ذهنه، كانت أصوات قديمة تهمس، ذكريات لم يفهمها بعد.</p>
-                    <p>أخرج دفترًا قديمًا، ورثه عن والده. كانت الصفحات المصفرة تحمل قصائد وأمثالاً، كل منها يبدو أنه يحمل درسًا. كتب أحدها: "الروح تتكلم عندما يكون القلب صامتًا." أغلق أمادو عينيه، محاولًا الاستماع إلى ذلك الصوت الداخلي.</p>
-                    <p>أثناء تأمله، ظهرت له رؤية: نهر متلألئ، تصطف على ضفافه أشجار ذهبية. تحدث صوت رقيق: "اتبع التيار، لكن لا تنس من أين أتيت." عندما فتح عينيه، كانت النار لا تزال تتأجج، لكنه شعر بأنه تغير.</p>
-                `
-            }
-        },
-        // ... Chapitres 3 à 41 (exemple réduit pour brièveté, structure identique) ...
-        {
-            id: "chapter42",
-            title: {
-                fr: "Chapitre 42 : La Lumière Éternelle",
-                en: "Chapter 42: The Eternal Light",
-                ar: "الفصل الثاني والأربعون: النور الأبدي"
-            },
-            content: {
-                fr: `
-                    <p>Après des années de voyage, Amadou se tenait enfin devant la montagne sacrée. Le sommet, baigné de lumière, semblait toucher les étoiles. Chaque épreuve, chaque doute, l’avait conduit ici. Il sentit une paix profonde, comme si l’univers entier lui parlait.</p>
-                    <p>Il gravit les derniers mètres, et au sommet, il trouva un autel simple, orné d’une flamme qui ne vacillait jamais. Une voix résonna, non pas dans ses oreilles, mais dans son cœur : « Tu as trouvé la voie, car tu as cru en toi. » Amadou sourit, sachant que son voyage ne faisait que commencer.</p>
-                    <p>En redescendant, il savait qu’il porterait cette lumière partout où il irait. *La Voie du Salut* n’était pas une destination, mais un chemin éternel, un appel à vivre avec courage et amour.</p>
-                `,
-                en: `
-                    <p>After years of journeying, Amadou stood before the sacred mountain. The summit, bathed in light, seemed to touch the stars. Every trial, every doubt, had led him here. He felt a profound peace, as if the entire universe were speaking to him.</p>
-                    <p>He climbed the final meters, and at the summit, he found a simple altar, adorned with a flame that never flickered. A voice resounded, not in his ears, but in his heart: “You have found the path, for you believed in yourself.” Amadou smiled, knowing his journey was just beginning.</p>
-                    <p>As he descended, he knew he would carry this light wherever he went. *The Path to Salvation* was not a destination, but an eternal path, a call to live with courage and love.</p>
-                `,
-                ar: `
-                    <p>بعد سنوات من الترحال، وقف أمادو أمام الجبل المقدس. كانت القمة، المغطاة بالنور، تبدو وكأنها تلمس النجوم. كل محنة، كل شك، قادته إلى هنا. شعر بسلام عميق، كما لو أن الكون بأسره يتحدث إليه.</p>
-                    <p>تسلق الأمتار الأخيرة، وعلى القمة، وجد مذبحًا بسيطًا، مزينًا بلهب لا يتلاشى أبدًا. صدى صوت، ليس في أذنيه، بل في قلبه: "لقد وجدت الطريق، لأنك آمنت بنفسك." ابتسم أمادو، عالمًا أن رحلته لم تبدأ بعد.</p>
-                    <p>عندما نزل، عرف أنه سيحمل هذا النور أينما ذهب. *طريق الخلاص* لم يكن وجهة، بل طريقًا أبديًا، دعوة للعيش بشجاعة وحب.</p>
-                `
-            }
-        }
-    ]
-};
+const chapters = [
+  {
+    chapter: 1,
+    fr: "Dans le silence de l’aube, la vérité s’éveille. Le cœur de l’homme cherche une voie, une lumière. Ce chapitre inaugure notre voyage vers le salut, où chaque mot est un pas et chaque pensée, une prière.",
+    en: "In the silence of dawn, truth awakens. Man’s heart seeks a path, a light. This chapter opens our journey toward salvation, where each word is a step and each thought, a prayer.",
+    ar: "في صمت الفجر، تستيقظ الحقيقة. قلب الإنسان يبحث عن طريق ونور. هذا الفصل يفتتح رحلتنا نحو الخلاص، حيث كل كلمة خطوة، وكل فكرة دعاء."
+  },
+  {
+    chapter: 2,
+    fr: "La foi ne naît pas du hasard, mais d’un appel intérieur. Quand le monde crie, l’âme écoute. C’est dans cette écoute que s’ancre le début de toute transformation véritable.",
+    en: "Faith is not born of chance, but from an inner calling. When the world screams, the soul listens. It is in this listening that true transformation begins.",
+    ar: "الإيمان لا يولد من صدفة، بل من نداء داخلي. عندما يصرخ العالم، تُنصت الروح. وفي هذا الإصغاء تبدأ التحولات الحقيقية."
+  },
+  {
+    chapter: 3,
+    fr: "Le doute est l’ombre de la certitude. Il faut l’accueillir, non le fuir. Car dans l’ombre du doute, brille souvent la lumière de la vérité la plus pure.",
+    en: "Doubt is the shadow of certainty. It must be welcomed, not feared. For within the shadow of doubt often shines the light of the purest truth.",
+    ar: "الشك هو ظل اليقين. يجب أن نرحب به، لا أن نهرب منه. ففي ظل الشك، يتلألأ غالبًا نور الحقيقة الأصفى."
+  },
+  {
+    chapter: 4,
+    fr: "Chaque pas vers la lumière est une victoire sur l’obscurité. Ce chapitre rappelle que le chemin est parfois ardu, mais que la persévérance éclaire chaque détour.",
+    en: "Each step toward the light is a victory over darkness. This chapter reminds us that the path can be tough, but perseverance lights every twist.",
+    ar: "كل خطوة نحو النور هي انتصار على الظلام. يذكرنا هذا الفصل أن الطريق قد يكون صعبًا، لكن المثابرة تضيء كل منعطف."
+  },
+  {
+    chapter: 5,
+    fr: "L’amour véritable transcende les barrières. Il unit les âmes et donne sens à la quête du salut. Ce chapitre explore la force unificatrice de l’amour divin.",
+    en: "True love transcends barriers. It unites souls and gives meaning to the quest for salvation. This chapter explores the unifying power of divine love.",
+    ar: "الحب الحقيقي يتجاوز الحواجز. يوحد الأرواح ويعطي معنى للسعي نحو الخلاص. يستكشف هذا الفصل قوة الحب الإلهي الموحدة."
+  },
+  {
+    chapter: 6,
+    fr: "Le pardon est un pont vers la liberté intérieure. Libérer l’autre, c’est surtout se libérer soi-même. Ce chapitre invite à ouvrir ce pont vers la paix.",
+    en: "Forgiveness is a bridge to inner freedom. To free the other is mostly to free oneself. This chapter invites us to open that bridge toward peace.",
+    ar: "المغفرة جسر نحو الحرية الداخلية. تحرير الآخر هو في الغالب تحرير الذات. يدعونا هذا الفصل لفتح ذلك الجسر نحو السلام."
+  },
+  {
+    chapter: 7,
+    fr: "La sagesse s’acquiert dans le silence et l’écoute. Ce chapitre souligne l’importance de l’humilité pour recevoir les vérités profondes qui guident le salut.",
+    en: "Wisdom is gained in silence and listening. This chapter highlights the importance of humility to receive the deep truths that guide salvation.",
+    ar: "تُكتسب الحكمة في الصمت والاستماع. يسلط هذا الفصل الضوء على أهمية التواضع لتلقي الحقائق العميقة التي ترشد إلى الخلاص."
+  },
+  {
+    chapter: 8,
+    fr: "La prière est un dialogue entre l’âme et l’infini. Ce chapitre invite à cultiver ce lien sacré pour avancer avec confiance sur le chemin du salut.",
+    en: "Prayer is a dialogue between the soul and the infinite. This chapter invites cultivating this sacred bond to move forward with confidence on the path to salvation.",
+    ar: "الصلاة حوار بين الروح واللانهاية. يدعو هذا الفصل إلى تنمية هذا الرابط المقدس للتقدم بثقة في طريق الخلاص."
+  },
+  {
+    chapter: 9,
+    fr: "Le sacrifice n’est pas une perte, mais un gain spirituel. Ce chapitre explore comment renoncer au superflu ouvre la porte à l’essentiel.",
+    en: "Sacrifice is not a loss but a spiritual gain. This chapter explores how letting go of the superfluous opens the door to the essential.",
+    ar: "التضحية ليست خسارة بل مكسب روحي. يستكشف هذا الفصل كيف يفتح التخلي عن الزائد باب الجوهر."
+  },
+  {
+    chapter: 10,
+    fr: "L’espérance est la flamme qui éclaire même les nuits les plus sombres. Ce chapitre encourage à nourrir cette flamme intérieure qui jamais ne s’éteint.",
+    en: "Hope is the flame that lights even the darkest nights. This chapter encourages nurturing this inner flame that never goes out.",
+    ar: "الأمل هو الشعلة التي تضيء حتى أحلك الليالي. يشجع هذا الفصل على تغذية هذه الشعلة الداخلية التي لا تنطفئ أبداً."
+  },
+  {
+    chapter: 11,
+    fr: "Le chemin du salut est pavé de choix. Ce chapitre rappelle que chaque décision, même minime, façonne notre destin spirituel.",
+    en: "The path to salvation is paved with choices. This chapter reminds us that every decision, even small, shapes our spiritual destiny.",
+    ar: "طريق الخلاص مرصوف بالخيارات. يذكرنا هذا الفصل أن كل قرار، حتى لو كان صغيرًا، يشكل مصيرنا الروحي."
+  },
+  {
+    chapter: 12,
+    fr: "La vérité est un phare qui ne vacille jamais. Ce chapitre invite à chercher cette lumière même lorsque les vents du doute soufflent fort.",
+    en: "Truth is a beacon that never wavers. This chapter invites seeking this light even when the winds of doubt blow strong.",
+    ar: "الحقيقة هي منارة لا تتذبذب أبداً. يدعو هذا الفصل إلى البحث عن هذا النور حتى عندما تهب رياح الشك بقوة."
+  },
+  {
+    chapter: 13,
+    fr: "L’humilité ouvre les portes de la sagesse. Ce chapitre montre que reconnaître ses limites est la première étape vers la grandeur spirituelle.",
+    en: "Humility opens the doors of wisdom. This chapter shows that recognizing one’s limits is the first step toward spiritual greatness.",
+    ar: "التواضع يفتح أبواب الحكمة. يظهر هذا الفصل أن الاعتراف بالحدود هو الخطوة الأولى نحو العظمة الروحية."
+  },
+  {
+    chapter: 14,
+    fr: "La compassion est un langage universel. Ce chapitre révèle comment elle peut guérir les blessures du monde et rapprocher les cœurs.",
+    en: "Compassion is a universal language. This chapter reveals how it can heal the wounds of the world and bring hearts closer.",
+    ar: "الرحمة هي لغة عالمية. يكشف هذا الفصل كيف يمكنها شفاء جراح العالم وتقريب القلوب."
+  },
+  {
+    chapter: 15,
+    fr: "Le pardon est le souffle qui renouvelle l’âme. Ce chapitre invite à libérer les chaînes du passé pour embrasser la liberté du présent.",
+    en: "Forgiveness is the breath that renews the soul. This chapter invites releasing the chains of the past to embrace the freedom of the present.",
+    ar: "المغفرة هي النفس الذي يجدد الروح. يدعو هذا الفصل إلى تحرير قيود الماضي لاحتضان حرية الحاضر."
+  },
+  {
+    chapter: 16,
+    fr: "La paix intérieure est le trésor caché du salut. Ce chapitre guide vers les pratiques qui cultivent ce joyau précieux au cœur de chaque être.",
+    en: "Inner peace is the hidden treasure of salvation. This chapter guides toward practices that cultivate this precious jewel in the heart of every being.",
+    ar: "السلام الداخلي هو الكنز المخفي للخلاص. يوجه هذا الفصل نحو الممارسات التي تزرع هذه الجوهرة الثمينة في قلب كل كائن."
+  },
+  {
+    chapter: 17,
+    fr: "La patience est la clé qui déverrouille les portes du temps. Ce chapitre enseigne comment attendre avec foi le moment juste pour chaque chose.",
+    en: "Patience is the key that unlocks the doors of time. This chapter teaches how to wait with faith for the right moment for everything.",
+    ar: "الصبر هو المفتاح الذي يفتح أبواب الزمن. يعلّم هذا الفصل كيفية الانتظار بالإيمان للحظة المناسبة لكل شيء."
+  },
+  {
+    chapter: 18,
+    fr: "La sagesse est un arbre aux racines profondes. Ce chapitre explique comment l’expérience nourrit ces racines pour une croissance durable.",
+    en: "Wisdom is a tree with deep roots. This chapter explains how experience nourishes these roots for sustainable growth.",
+    ar: "الحكمة شجرة ذات جذور عميقة. يشرح هذا الفصل كيف تغذي التجربة هذه الجذور لنمو مستدام."
+  },
+  {
+    chapter: 19,
+    fr: "Le courage est la flamme qui brille dans la nuit de l’incertitude. Ce chapitre encourage à affronter les peurs avec détermination et lumière.",
+    en: "Courage is the flame that shines in the night of uncertainty. This chapter encourages facing fears with determination and light.",
+    ar: "الشجاعة هي الشعلة التي تضيء في ليل عدم اليقين. يشجع هذا الفصل على مواجهة المخاوف بالعزيمة والنور."
+  },
+  {
+    chapter: 20,
+    fr: "L’espérance est un oiseau qui chante au cœur des tempêtes. Ce chapitre invite à écouter ce chant pour trouver force et renouveau.",
+    en: "Hope is a bird that sings in the heart of storms. This chapter invites listening to this song to find strength and renewal.",
+    ar: "الأمل هو طائر يغني في قلب العواصف. يدعو هذا الفصل إلى الاستماع إلى هذه الأغنية للعثور على القوة والتجدد."
+  },
+  {
+    chapter: 21,
+    fr: "La vérité libère, même quand elle dérange. Ce chapitre explore le courage nécessaire pour embrasser cette liberté avec authenticité.",
+    en: "Truth frees, even when it disturbs. This chapter explores the courage needed to embrace this freedom with authenticity.",
+    ar: "الحقيقة تحرر، حتى عندما تزعج. يستكشف هذا الفصل الشجاعة اللازمة لاحتضان هذه الحرية بصدق."
+  },
+  {
+    chapter: 22,
+    fr: "L’amour de soi est la fondation du salut. Ce chapitre rappelle que se chérir est le premier pas pour aimer les autres véritablement.",
+    en: "Self-love is the foundation of salvation. This chapter reminds that cherishing oneself is the first step to truly loving others.",
+    ar: "حب الذات هو أساس الخلاص. يذكرنا هذا الفصل أن تقدير الذات هو الخطوة الأولى لمحبة الآخرين حقاً."
+  },
+  {
+    chapter: 23,
+    fr: "Le silence est un sanctuaire où l’âme se ressource. Ce chapitre invite à cultiver ce refuge intérieur pour mieux entendre la voix divine.",
+    en: "Silence is a sanctuary where the soul recharges. This chapter invites cultivating this inner refuge to better hear the divine voice.",
+    ar: "الصمت هو ملاذ تعيد فيه الروح شحن طاقتها. يدعو هذا الفصل إلى تنمية هذا الملجأ الداخلي لسماع الصوت الإلهي بشكل أفضل."
+  },
+  {
+    chapter: 24,
+    fr: "La gratitude transforme chaque instant en bénédiction. Ce chapitre enseigne comment voir le monde avec des yeux reconnaissants et ouverts.",
+    en: "Gratitude transforms every moment into a blessing. This chapter teaches how to see the world with grateful and open eyes.",
+    ar: "الامتنان يحول كل لحظة إلى نعمة. يعلّم هذا الفصل كيف نرى العالم بعينين ممتنّتين ومنفتحتين."
+  },
+  {
+    chapter: 25,
+    fr: "La confiance est un pont fragile qui relie le cœur à l’espoir. Ce chapitre révèle les moyens de renforcer ce pont pour traverser les épreuves.",
+    en: "Trust is a fragile bridge linking the heart to hope. This chapter reveals ways to strengthen this bridge to overcome trials.",
+    ar: "الثقة جسر هش يربط القلب بالأمل. يكشف هذا الفصل طرق تقوية هذا الجسر لعبور المحن."
+  },
+  {
+    chapter: 26,
+    fr: "La lumière intérieure éclaire les sentiers cachés. Ce chapitre invite à découvrir cette lumière pour éviter les pièges du doute et de la peur.",
+    en: "Inner light illuminates hidden paths. This chapter invites discovering this light to avoid traps of doubt and fear.",
+    ar: "النور الداخلي يضيء الطرق الخفية. يدعو هذا الفصل لاكتشاف هذا النور لتجنب فخاخ الشك والخوف."
+  },
+  {
+    chapter: 27,
+    fr: "La simplicité est la clé d’une vie harmonieuse. Ce chapitre montre comment alléger le poids du superflu pour mieux goûter l’essentiel.",
+    en: "Simplicity is the key to a harmonious life. This chapter shows how to lighten the weight of the superfluous to better enjoy the essential.",
+    ar: "البساطة هي مفتاح الحياة المتناغمة. يوضح هذا الفصل كيف نخفف عبء الزائد للاستمتاع بالجوهر بشكل أفضل."
+  },
+  {
+    chapter: 28,
+    fr: "L’humilité est le berceau de la grandeur spirituelle. Ce chapitre explique que reconnaître ses faiblesses ouvre la voie à la véritable force.",
+    en: "Humility is the cradle of spiritual greatness. This chapter explains that recognizing one’s weaknesses opens the way to true strength.",
+    ar: "التواضع هو مهد العظمة الروحية. يشرح هذا الفصل أن الاعتراف بالضعف يفتح الطريق إلى القوة الحقيقية."
+  },
+  {
+    chapter: 29,
+    fr: "La joie authentique naît d’un cœur en paix. Ce chapitre explore les sources de cette joie durable au-delà des plaisirs éphémères.",
+    en: "Authentic joy arises from a peaceful heart. This chapter explores the sources of this lasting joy beyond fleeting pleasures.",
+    ar: "الفرح الحقيقي ينبع من قلب مسالم. يستكشف هذا الفصل مصادر هذا الفرح الدائم بعيدًا عن المتع الزائلة."
+  },
+  {
+    chapter: 30,
+    fr: "Le service aux autres est un chemin vers soi-même. Ce chapitre montre comment donner sans attendre enrichit l’âme et le monde.",
+    en: "Service to others is a path to oneself. This chapter shows how giving without expecting enriches the soul and the world.",
+    ar: "الخدمة للآخرين هي طريق نحو الذات. يوضح هذا الفصل كيف أن العطاء بلا انتظار يثري الروح والعالم."
+  },
+  {
+    chapter: 31,
+    fr: "La vérité intérieure guide au-delà des apparences. Ce chapitre invite à écouter cette voix discrète qui révèle le sens profond de la vie.",
+    en: "Inner truth guides beyond appearances. This chapter invites listening to this quiet voice that reveals life’s deeper meaning.",
+    ar: "الحقيقة الداخلية تهدي أبعد من المظاهر. يدعو هذا الفصل للاستماع إلى هذا الصوت الهادئ الذي يكشف المعنى العميق للحياة."
+  },
+  {
+    chapter: 32,
+    fr: "La liberté véritable naît de la conscience. Ce chapitre explore comment la prise de conscience libère des chaînes invisibles.",
+    en: "True freedom is born from awareness. This chapter explores how awareness frees from invisible chains.",
+    ar: "الحرية الحقيقية تولد من الوعي. يستكشف هذا الفصل كيف يحرر الوعي من القيود غير المرئية."
+  },
+  {
+    chapter: 33,
+    fr: "La persévérance transforme les obstacles en tremplins. Ce chapitre encourage à voir chaque difficulté comme une opportunité de croissance.",
+    en: "Perseverance transforms obstacles into stepping stones. This chapter encourages seeing every difficulty as a growth opportunity.",
+    ar: "المثابرة تحول العقبات إلى درجات سلم. يشجع هذا الفصل على رؤية كل صعوبة كفرصة للنمو."
+  },
+  {
+    chapter: 34,
+    fr: "Le cœur ouvert attire la lumière. Ce chapitre invite à ouvrir son être pour recevoir les bienfaits invisibles du salut.",
+    en: "An open heart attracts light. This chapter invites opening oneself to receive the invisible blessings of salvation.",
+    ar: "القلب المفتوح يجذب النور. يدعو هذا الفصل إلى فتح الذات لتلقي النعم الخفية للخلاص."
+  },
+  {
+    chapter: 35,
+    fr: "La méditation est le souffle de l’âme. Ce chapitre montre comment cette pratique nourrit le calme et la clarté intérieure.",
+    en: "Meditation is the breath of the soul. This chapter shows how this practice nurtures calm and inner clarity.",
+    ar: "التأمل هو نفس الروح. يوضح هذا الفصل كيف تغذي هذه الممارسة الهدوء والوضوح الداخلي."
+  },
+  {
+    chapter: 36,
+    fr: "Le respect de la création est un acte de foi. Ce chapitre révèle le lien sacré entre le salut et la protection de notre monde.",
+    en: "Respect for creation is an act of faith. This chapter reveals the sacred link between salvation and protecting our world.",
+    ar: "احترام الخلق هو فعل إيمان. يكشف هذا الفصل الصلة المقدسة بين الخلاص وحماية عالمنا."
+  },
+  {
+    chapter: 37,
+    fr: "L’altruisme élève l’âme. Ce chapitre révèle comment penser aux autres enrichit notre propre quête spirituelle.",
+    en: "Altruism elevates the soul. This chapter reveals how thinking of others enriches our own spiritual quest.",
+    ar: "الإيثار يرفع الروح. يكشف هذا الفصل كيف أن التفكير في الآخرين يغني سعينا الروحي."
+  },
+  {
+    chapter: 38,
+    fr: "La confiance en soi est un pilier du salut. Ce chapitre montre comment cultiver cette force intérieure face aux défis de la vie.",
+    en: "Self-confidence is a pillar of salvation. This chapter shows how to cultivate this inner strength facing life’s challenges.",
+    ar: "الثقة بالنفس هي عمود الخلاص. يوضح هذا الفصل كيفية زراعة هذه القوة الداخلية في مواجهة تحديات الحياة."
+  },
+  {
+    chapter: 39,
+    fr: "L’altruisme élève l’âme. Ce chapitre révèle comment penser aux autres enrichit notre propre quête spirituelle.",
+    en: "Altruism elevates the soul. This chapter reveals how thinking of others enriches our own spiritual quest.",
+    ar: "الإيثار يرفع الروح. يكشف هذا الفصل كيف أن التفكير في الآخرين يغني سعينا الروحي."
+  },
+  {
+    chapter: 40,
+    fr: "La joie partagée est un trésor multiplié. Ce chapitre invite à répandre la joie pour amplifier la lumière du salut autour de soi.",
+    en: "Shared joy is a multiplied treasure. This chapter invites spreading joy to amplify the light of salvation around us.",
+    ar: "الفرح المشترك هو كنز مضاعف. يدعو هذا الفصل إلى نشر الفرح لتكبير نور الخلاص حولنا."
+  },
+  {
+    chapter: 41,
+    fr: "Le chemin spirituel est un art de vivre. Ce chapitre rappelle que chaque instant est une toile où peindre sa quête du salut.",
+    en: "The spiritual path is an art of living. This chapter reminds that every moment is a canvas to paint one’s quest for salvation.",
+    ar: "الطريق الروحي هو فن الحياة. يذكر هذا الفصل أن كل لحظة هي لوحة نرسم عليها سعينا للخلاص."
+  },
+  {
+    chapter: 42,
+    fr: "Le salut est un horizon infini. Ce dernier chapitre ouvre la porte à une quête sans fin, où chaque fin est un nouveau commencement.",
+    en: "Salvation is an infinite horizon. This final chapter opens the door to an endless quest, where every ending is a new beginning.",
+    ar: "الخلاص هو أفق لا نهاية له. يفتح هذا الفصل الأخير الباب لسعي لا نهائي، حيث كل نهاية بداية جديدة."
+  }
+];
