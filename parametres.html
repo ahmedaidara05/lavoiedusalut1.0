@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paramètres</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" href="logo.png" type="image/png">
+    <link rel="shortcut icon" href="book-icon.png" type="image/png">
 </head>
 <body>
     <main>
@@ -16,7 +17,9 @@
         <aside class="sidebar active" data-sidebar>
             <div class="sidebar-info">
                 <figure class="avatar-box">
-                    <img src="my-avatar.png" alt="avatar" width="80">
+                    <img src="logo.png" alt="Profil" width="80" id="profilePicture">
+                    <input type="file" id="profilePictureInput" accept="image/*" style="display: none;">
+                    <button class="change-photo-btn" id="changePhotoBtn">Changer la photo</button>
                 </figure>
                 <div class="info-content">
                     <input type="text" class="name" value="Nom Utilisateur" id="userName">
@@ -120,6 +123,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-storage.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="firebase.js"></script>
