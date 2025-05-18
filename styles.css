@@ -1,4 +1,4 @@
-/* Fusion de styles.css (lecture, sommaire) et style.css (paramètres, bouton IA) */
+/* Fusion de tous les styles : accueil, lecture, sommaire, bouton IA, préparation paramètres */
 
 /* Variables globales */
 :root {
@@ -54,13 +54,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: #F1F4F8;
     color: #14181B;
-    height: 100vh;
+    min-height: 100vh;
     overflow-x: hidden;
 }
 
@@ -497,6 +498,11 @@ body.dark-mode .verse {
     border-radius: 50%;
 }
 
+.ai-close-btn:hover {
+    color: var(--orange-yellow-crayola);
+    background: rgba(255, 255, 255, 0.1);
+}
+
 .ai-chat-messages {
     flex-grow: 1;
     padding: 15px;
@@ -515,6 +521,11 @@ body.dark-mode .verse {
     line-height: 1.4;
     position: relative;
     animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .user-message {
@@ -569,6 +580,11 @@ body.dark-mode .verse {
     width: 36px;
     height: 36px;
     border-radius: 50%;
+}
+
+.ai-input-box button:hover {
+    background: hsla(45, 100%, 71%, 0.1);
+    transform: translateY(-2px);
 }
 
 .ai-typing-indicator {
