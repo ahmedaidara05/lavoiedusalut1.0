@@ -1,19 +1,21 @@
 {
-    "name": "Lecteur de Livre",
-    "short_name": "Livre",
-    "description": "Application de lecture moderne avec mode sombre, zoom, favoris, lecture vocale, traduction et assistant IA",
+    "name": "La Voie du Salut",
+    "short_name": "Voie du Salut",
+    "description": "Application de lecture spirituelle",
     "start_url": "/index.html",
     "display": "standalone",
-    "background_color": "#1e3a8a",
-    "theme_color": "#1e3a8a",
+    "background_color": "#F1F4F8",
+    "theme_color": "#14181B",
     "icons": [
         {
             "src": "book-icon.png",
-            "sizes": "64x64",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "book-icon.png",
+            "sizes": "512x512",
             "type": "image/png"
         }
-    ],
-    "lang": "fr",
-    "dir": "ltr",
-    "orientation": "portrait"
+    ]
 }
