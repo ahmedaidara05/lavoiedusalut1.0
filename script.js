@@ -8,6 +8,7 @@ function initializeAuth() {
             if (user) {
                 userId = user.uid;
                 loadUserPreferences();
+                console.log('Utilisateur connecté:', userId);
             } else {
                 console.log('Utilisateur non connecté, redirection vers paramètres');
                 window.location.href = 'parametres.html';
@@ -23,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Animations accueil
     const animatedElements = document.querySelectorAll('.title, .details-row, .section-label, .description');
     animatedElements.forEach(el => {
-        const startY = getComputedStyle(el).transform === 'matrix(1, 0, 0, 1, 0, 0)' ? 
-            el.style.transform.replace('translateY(', '').replace('px)', '') : 0;
+        const startY = getComputedStyle(el).transform.includes('translateY') ? 
+            parseInt(el.style.transform.replace(/[^0-9-]/g, '')) : 0;
         el.style.setProperty('--start-y', startY + 'px');
     });
 
@@ -41,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn('Bouton Commencer non trouvé');
     }
 
-    // Initialiser Firebase après le chargement
+    // Initialiser Firebase
     initializeAuth();
 });
 
