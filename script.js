@@ -1,13 +1,22 @@
 // Initialisation Firebase (définie dans firebase.js)
 let userId = null;
-firebase.auth().onAuthStateChanged(user => {
-    if (user) {
-        userId = user.uid;
-        loadUserPreferences();
-    } else {
-        window.location.href = 'parametres.html'; // Redirige vers connexion si non authentifié
+
+// Gestion de l'authentification
+function initializeAuth() {
+    try {
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                userId = user.uid;
+                loadUserPreferences();
+            } else {
+                console.log('Utilisateur non connecté, redirection vers paramètres');
+                window.location.href = 'parametres.html';
+            }
+        });
+    } catch (error) {
+        console.error('Erreur initialisation Firebase:', error);
     }
-});
+}
 
 // Page d'accueil
 document.addEventListener('DOMContentLoaded', () => {
@@ -22,11 +31,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Bouton Commencer
     const startButton = document.getElementById('startButton');
     if (startButton) {
+        console.log('Bouton Commencer trouvé');
         startButton.addEventListener('click', () => {
+            console.log('Clic sur Commencer, redirection vers sommaire.html');
             localStorage.setItem('lastPage', 'index.html');
             window.location.href = 'sommaire.html';
         });
+    } else {
+        console.warn('Bouton Commencer non trouvé');
     }
+
+    // Initialiser Firebase après le chargement
+    initializeAuth();
 });
 
 // Charger les préférences utilisateur
@@ -38,7 +54,7 @@ async function loadUserPreferences() {
             const data = doc.data();
             document.body.classList.toggle('dark-mode', data.theme === 'dark');
             document.documentElement.style.fontSize = `${data.fontSize || 16}px`;
-            // Appliquer langue, voix, etc.
+            console.log('Préférences chargées:', data);
         }
     } catch (error) {
         console.error('Erreur chargement préférences:', error);
