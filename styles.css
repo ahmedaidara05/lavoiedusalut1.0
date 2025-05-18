@@ -1,4 +1,4 @@
-/* Fusion de tous les styles : accueil, lecture, sommaire, bouton IA, préparation paramètres */
+/* CSS fusionné : accueil, lecture, sommaire, favoris, bouton IA, préparation paramètres */
 
 /* Variables globales */
 :root {
@@ -230,6 +230,10 @@ body.dark-mode .bottom-bar {
 .bottom-bar {
     border-top: 1px solid #e0e0e0;
     border-bottom: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 800px;
 }
 
 .icon {
@@ -238,6 +242,7 @@ body.dark-mode .bottom-bar {
     border-radius: 50%;
     transition: all 0.3s;
     color: #555;
+    font-size: 24px;
 }
 
 body.dark-mode .icon {
@@ -263,6 +268,7 @@ body.dark-mode .icon:hover {
     overflow-y: auto;
     text-align: justify;
     line-height: 1.8;
+    margin-bottom: 60px;
 }
 
 body.dark-mode .book-content {
