@@ -1,4 +1,4 @@
-/* CSS fusionné : accueil, lecture, sommaire, favoris, bouton IA, préparation paramètres */
+/* CSS fusionné : accueil, lecture, sommaire, favoris, paramètres, bouton IA */
 
 /* Variables globales */
 :root {
@@ -76,7 +76,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: #F1F4F8;
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw4gYPKhq-e6NUZ7KRp_FQzS4Loee1y5kO2A&s');
+    background-image: url('book-cover.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -202,7 +202,7 @@ body.dark-mode {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    max-width: 800px;
+    max- width: 800px;
     margin: 0 auto;
     background-color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
@@ -364,7 +364,7 @@ body.dark-mode .verse {
     border: 1px solid var(--glass-border);
     border-radius: 12px;
     padding: 1.5rem;
-    transition: transform 1s ease;
+    transition: transform 0.3s ease;
     cursor: pointer;
     text-align: center;
 }
@@ -624,6 +624,220 @@ body.dark-mode .verse {
     30% { transform: translateY(-5px); opacity: 1; }
 }
 
+/* Paramètres */
+main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    background: var(--bg-gradient-jet);
+}
+
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: var(--onyx);
+    color: var(--white2);
+    border: 1px solid var(--jet);
+    border-radius: 14px;
+    font-size: var(--fs6);
+    font-weight: var(--fw500);
+    cursor: pointer;
+    transition: var(--transition1);
+    z-index: 1000;
+}
+
+.back-button:hover {
+    background: var(--white2);
+    color: var(--eerie-black2);
+    border-color: var(--white2);
+}
+
+.back-button ion-icon {
+    font-size: 18px;
+}
+
+.sidebar {
+    width: 100%;
+    max-width: 600px;
+    background: var(--bg-gradient-onyx);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--jet);
+    border-radius: 26px;
+    padding: 25px;
+    margin-top: 60px;
+}
+
+.sidebar-info {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.avatar-box {
+    position: relative;
+    background: var(--bg-gradient-onyx);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.avatar-box img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.change-photo-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--orange-yellow-crayola);
+    color: var(--smoky-black);
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: var(--fs8);
+    cursor: pointer;
+    transition: var(--transition1);
+}
+
+.change-photo-btn:hover {
+    background: var(--white2);
+}
+
+.info-content .name {
+    color: var(--white2);
+    font-size: var(--fs3);
+    font-weight: var(--fw500);
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--jet);
+    border-radius: 8px;
+    background: transparent;
+}
+
+.info-content .title {
+    color: var(--light-gray70);
+    font-size: var(--fs7);
+    font-weight: var(--fw300);
+}
+
+.sidebar-info-more {
+    width: 100%;
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background: var(--jet);
+    margin: 24px 0;
+}
+
+.contacts-list {
+    display: grid;
+    gap: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.icon-box {
+    width: 48px;
+    height: 48px;
+    background: var(--bg-gradient-onyx);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+}
+
+.icon-box ion-icon {
+    font-size: 20px;
+    color: var(--light-gray);
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-title {
+    color: var(--light-gray70);
+    font-size: var(--fs7);
+    font-weight: var(--fw400);
+    margin-bottom: 8px;
+}
+
+.contact-info input,
+.contact-info select,
+.contact-info a {
+    color: var(--white2);
+    font-size: var(--fs6);
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--jet);
+    border-radius: 8px;
+    background: transparent;
+}
+
+.contact-info select {
+    appearance: none;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="hsl(0, 0%, 84%)" viewBox="0 0 16 16"><path d="M8 12l-6-6h12z"/></svg>') no-repeat right 10px center;
+}
+
+.contact-info a {
+    display: inline-block;
+    padding: 8px 0;
+}
+
+.contact-info input:focus,
+.contact-info select:focus {
+    outline: none;
+    border-color: var(--orange-yellow-crayola);
+}
+
+.h3 {
+    color: var(--white2);
+    font-size: var(--fs4);
+    font-weight: var(--fw500);
+    margin-bottom: 16px;
+}
+
+.social-list {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.social-item .social-link {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-gradient-onyx);
+    border-radius: 50%;
+    font-size: 18px;
+    color: var(--light-gray);
+    transition: var(--transition1);
+}
+
+.social-item .social-link:hover {
+    background: var(--orange-yellow-crayola);
+    color: var(--smoky-black);
+}
+
 /* Responsive */
 @media (max-width: 600px) {
     .book-content { padding: 20px; }
@@ -635,4 +849,7 @@ body.dark-mode .verse {
     .hero-title { font-size: 2rem; }
     .hero-subtitle { font-size: 1rem; }
     .chapter-card h2 { font-size: 1.1rem; }
+    .sidebar { padding: 20px; }
+    .avatar-box img { width: 60px; }
+    .back-button { top: 10px; left: 10px; }
 }
