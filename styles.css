@@ -2,242 +2,686 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background: #f4f4f9;
-    color: #333;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: #f0f4f8;
+    color: #1e3a8a;
+    font-size: 16px;
     user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+    transition: background-color 0.3s, color 0.3s;
+    /* Ajout d'un padding-bottom pour que le contenu ne soit pas masqué par la barre du bas */
+    padding-bottom: 60px; /* Ajustez cette valeur à la hauteur réelle de votre .bottom-navbar */
 }
 
-/* Page d'accueil */
-.hero {
-    height: 100vh;
-    background: url('background.jpg') no-repeat center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+body.dark {
+    background-color: #000;
     color: #fff;
-    position: relative;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
+/* En-tête (Barre du haut) */
+.top-navbar {
+    background-color: #1e3a8a;
+    color: #d4af37;
+    padding: 0.2rem 1rem; /* Réduit le padding vertical pour une barre plus fine */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
     top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+.header-content { /* Contient l'image et le titre du livre */
+    display: flex;
+    align-items: center;
+    gap: 0.8rem; /* Espacement ajusté entre l'image et le titre */
+}
+
+/* Style pour le titre H1 dans la barre du haut */
+.top-navbar h1 {
+    font-size: 1.1rem; /* Taille du titre ajustée */
+    margin: 0; /* Supprime les marges par défaut du h1 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.right-nav { /* Contient le bouton hamburger et le menu déroulant */
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    position: relative; /* IMPORTANT pour le positionnement absolu du menu déroulant */
+}
+
+.header-book {
+    width: 35px;  /* Nouvelle largeur de l'image */
+    height: 35px; /* Nouvelle hauteur de l'image */
+    object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid #d4af37;
+}
+
+/* Barre de navigation du bas */
+.bottom-navbar {
+    background-color: #1e3a8a;
+    color: #d4af37;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-around; /* Pour distribuer les icônes de manière égale */
+    align-items: center;
+    position: fixed; /* Fixer la barre en bas de l'écran */
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.hero-content {
-    position: relative;
-    z-index: 1;
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    color: #ffd700;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin: 20px 0;
-}
-
-.hero button {
-    padding: 15px;
-    font-size: 1.5rem;
-    background: #ffd700;
-    border: none;
-    color: #000;
+/* Styles pour tous les boutons de navigation et le select */
+/* Appliqué aux boutons de la top-navbar (sauf le hamburger initialement sur mobile) et bottom-navbar */
+.top-navbar button, .bottom-navbar button, #voice-select {
+    background: none;
+    border: 2px solid #d4af37;
+    color: #d4af37;
+    font-size: 1rem; /* Taille de police standard pour les icônes */
     cursor: pointer;
-    border-radius: 50px;
-    transition: transform 0.3s, background 0.3s;
-}
-
-.hero button:hover {
-    transform: scale(1.1);
-    background: #e6c200;
-}
-
-/* Pages */
-.page {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.page.hidden {
-    display: none;
-}
-
-h1, h2, h3 {
-    color: #ffd700;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Liste des chapitres */
-.chapter-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.chapter-list div {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.chapter-list div:hover {
-    transform: translateY(-5px);
-}
-
-/* Page de lecture */
-.reading-header {
+    padding: 0.3rem;
+    border-radius: 50%; /* Pour les icônes circulaires */
+    width: 40px; /* Taille par défaut pour un bon touché */
+    height: 40px;
     display: flex;
-    gap: 10px;
-    padding: 10px;
-    background: #fff;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.reading-header select, .reading-header button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background: #f4f4f9;
-    font-size: 1rem;
-}
-
-.reading-header button:hover {
-    background: #ffd700;
-}
-
-.chapter-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-/* Mode sombre */
-.dark-mode {
-    background: #222;
-    color: #fff;
-}
-
-.dark-mode .chapter-content, .dark-mode .chapter-list div, .dark-mode .reading-header {
-    background: #333;
-    color: #fff;
-}
-
-/* Page des favoris */
-.favorite-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-/* Page des paramètres */
-.user-profile {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.user-profile img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.settings-options {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.settings-options input, .settings-options select, .settings-options button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    background: #f4f4f9;
-}
-
-.social-links {
-    display: flex;
-    gap: 10px;
+    align-items: center;
     justify-content: center;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-.social-links img {
-    width: 40px;
+/* Style spécifique pour le bouton hamburger */
+#hamburger-menu-btn {
+    font-size: 1.2rem; /* Légèrement plus grand pour l'icône hamburger */
+    width: 40px; /* Taille cohérente avec les autres boutons */
     height: 40px;
 }
 
-.back-button {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    padding: 10px;
-    background: #ffd700;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+
+#voice-select {
+    border-radius: 10px; /* Garde la forme rectangulaire pour le select */
+    width: auto;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    text-align: center; /* Centrer le texte si possible */
 }
 
-/* Barre de navigation */
-.nav-bar {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: #fff;
+.top-navbar button:hover, .bottom-navbar button:hover, #voice-select:hover {
+    background-color: #d4af37;
+    color: #1e3a8a;
+    transform: scale(1.1);
+}
+
+/* Styles pour le menu déroulant du hamburger */
+.dropdown-menu {
+    display: flex; /* Toujours flex pour la structure, mais masqué/affiché par opacité/transform */
+    flex-direction: column; /* Pour afficher les éléments verticalement */
+    position: absolute;
+    top: 50px; /* Ajuste la position sous la barre du haut */
+    right: 0;
+    background-color: #1e3a8a; /* Couleur de fond du menu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 999; /* Moins prioritaire que la navbar, mais au-dessus du contenu */
+    min-width: 150px; /* Largeur minimale pour le menu */
+
+    /* Animations */
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none; /* Empêche les interactions quand caché */
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto; /* Permet les interactions quand affiché */
+}
+
+/* Styles pour les éléments à l'intérieur du menu déroulant */
+.dropdown-menu button, .dropdown-menu select {
+    width: 100%; /* Les boutons et select prennent toute la largeur du menu */
+    border-radius: 5px; /* Les rendre plus rectangulaires pour un menu */
+    margin-bottom: 5px; /* Espace entre les éléments */
+    height: auto; /* Laisse la hauteur s'adapter au contenu */
+    padding: 0.5rem; /* Padding pour un meilleur toucher */
+}
+
+/* Retirer le margin-bottom du dernier élément pour éviter un espace superflu */
+.dropdown-menu button:last-child, .dropdown-menu select:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Page d'accueil */
+.home-content {
     display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    gap: 2rem;
+    align-items: center;
 }
 
-.nav-bar button {
-    padding: 10px;
-    border: none;
+.home-text {
+    flex: 1;
+}
+
+.home-text p {
+    margin-bottom: 1rem;
+}
+
+#start-btn {
+    background-color: #1e3a8a;
+    color: #d4af37;
+    border: 2px solid #d4af37;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#start-btn:hover {
+    background-color: #d4af37;
+    color: #1e3a8a;
+    transform: translateY(-2px);
+}
+
+.book-cover {
+    max-width: 200px;
+    border-radius: 8px;
+    border: 3px solid #d4af37;
+}
+
+/* Main */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+section {
+    display: none;
+    padding: 1rem;
+    background: transparent;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+section.active {
+    display: block;
+}
+
+.chapter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    color: #1e3a8a;
+    font-weight: 600;
+}
+
+body.dark h2 {
+    color: #d4af37;
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.close-btn {
     background: none;
+    border: 2px solid #d4af37;
+    color: #d4af37;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.3rem;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.2s;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.close-btn:hover {
+    background-color: #d4af37;
+    color: #1e3a8a;
+    transform: scale(1.1);
+}
+
+.favorite {
     font-size: 1.5rem;
     cursor: pointer;
+    color: #d4af37;
+    transition: color 0.3s, transform 0.2s;
 }
 
-.nav-bar button:hover {
-    color: #ffd700;
+.favorite.active {
+    color: #fff;
+    transform: scale(1.2);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
+body.dark .favorite.active {
+    color: #d4af37;
+}
+
+.favorite:hover {
+    transform: scale(1.2);
+}
+
+/* Navigation entre chapitres */
+.chapter-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.prev-btn, .next-btn, #sign-out-btn {
+    background-color: #1e3a8a;
+    color: #d4af37;
+    border: 2px solid #d4af37;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.prev-btn:hover, .next-btn:hover, #sign-out-btn:hover {
+    background-color: #d4af37;
+    color: #1e3a8a;
+    transform: translateY(-2px);
+}
+
+.prev-btn:disabled, .next-btn:disabled {
+    background-color: #ccc;
+    color: #666;
+    border-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Liste des chapitres */
+#chapter-list {
+    list-style: none;
+}
+
+#chapter-list li {
+    margin: 0.5rem 0;
+}
+
+#chapter-list a {
+    color: #1e3a8a;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+body.dark #chapter-list a {
+    color: #d4af37;
+}
+
+#chapter-list a:hover {
+    color: #d4af37;
+}
+
+body.dark #chapter-list a:hover {
+    color: #fff;
+}
+
+/* Favoris */
+#favorites-list {
+    list-style: none;
+}
+
+#favorites-list li {
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#favorites-list a {
+    color: #1e3a8a;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+body.dark #favorites-list a {
+    color: #d4af37;
+}
+
+#favorites-list a:hover {
+    color: #d4af37;
+}
+
+body.dark #favorites-list a:hover {
+    color: #fff;
+}
+
+.progress-bar {
+    width: 100px;
+    height: 8px;
+    background-color: #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: #1e3a8a;
+    transition: width 0.3s;
+}
+
+body.dark .progress {
+    background-color: #d4af37;
+}
+
+/* Page de profil */
+.profile-content {
+    margin-top: 1rem;
+}
+
+.profile-content h3, .profile-content h4 {
+    margin: 1rem 0 0.5rem;
+}
+
+.setting, .form-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.5rem 0;
+}
+
+.setting label, .form-group label {
+    flex: 1;
+}
+
+.setting select, .setting input[type="range"], .setting input[type="checkbox"],
+.form-group input {
+    flex: 2;
+    padding: 0.3rem;
+    border: 2px solid #d4af37;
+    border-radius: 5px;
+    background-color: #f0f4f8;
+    color: #1e3a8a;
+}
+
+body.dark .setting select, body.dark .setting input[type="range"],
+body.dark .setting input[type="checkbox"], body.dark .form-group input {
+    background-color: #333;
+    color: #d4af37;
+}
+
+.setting input[type="range"] {
+    width: 100%;
+}
+
+.setting input[type="checkbox"] {
+    width: auto;
+}
+
+.form-group input {
+    width: 100%;
+}
+
+#login-form, #signup-form {
+    margin-bottom: 1rem;
+}
+
+#login-form button, #signup-form button {
+    background-color: #1e3a8a;
+    color: #d4af37;
+    border: 2px solid #d4af37;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#login-form button:hover, #signup-form button:hover {
+    background-color: #d4af37;
+    color: #1e3a8a;
+    transform: translateY(-2px);
+}
+
+/* Responsive pour mobile */
+@media (max-width: 600px) {
+    .top-navbar {
+        /* Nous n'aurons plus besoin de flex-direction: column ici si le menu est déroulant */
+        /* padding: 0.5rem; --> C'est déjà 0.2rem plus haut, conservons le 0.2rem */
+        /* justify-content: center; --> space-between est mieux pour garder livre/titre à gauche et hamburger à droite */
+        /* align-items: center; --> déjà présent et bon */
     }
-    .chapter-list {
-        grid-template-columns: 1fr;
+
+    .top-navbar .header-content {
+        /* margin-bottom: 0.5rem; --> Plus nécessaire si le menu est en pop-up */
     }
+
+    .top-navbar .right-nav {
+        /* flex-wrap: wrap; --> Plus nécessaire car les icônes sont dans le menu déroulant */
+        /* justify-content: center; --> Plus nécessaire */
+        /* gap: 0.3rem; --> Plus nécessaire ici directement */
+    }
+
+    /* Masque les icônes individuelles dans la barre du haut sur mobile, pour que seul le hamburger soit visible */
+    /* Cela cible tous les enfants directs de .right-nav SAUF le bouton hamburger */
+    .right-nav > button:not(#hamburger-menu-btn),
+    .right-nav > select {
+        display: none;
+    }
+
+    /* Affiche le bouton hamburger sur mobile */
+    #hamburger-menu-btn {
+        display: block;
+    }
+
+
+    .bottom-navbar {
+        padding: 0.5rem 0.5rem;
+    }
+
+    /* Ajustement de la taille des boutons pour mobile */
+    /* Ces styles s'appliqueront aux boutons DANS le dropdown menu aussi */
+    .top-navbar button, .bottom-navbar button, #voice-select {
+        width: 35px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
+
+    #voice-select {
+        padding: 0.2rem 0.3rem;
+        font-size: 0.7rem;
+    }
+
+    /* Styles pour le menu déroulant sur mobile (déjà défini plus haut) */
+    .dropdown-menu {
+        top: 50px; /* Positionnement par rapport à la barre du haut */
+        right: 10px; /* Petit décalage depuis la droite */
+    }
+
+
+    main {
+        padding: 0.5rem;
+    }
+
+    section {
+        padding: 0.5rem;
+    }
+
+    .home-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-cover {
+        max-width: 150px;
+    }
+
+    .chapter-nav {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .setting, .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .setting label, .setting select, .setting input[type="range"],
+    .setting input[type="checkbox"], .form-group label, .form-group input {
+        width: 100%;
+    }
+}
+
+/* Styles pour les écrans plus grands (>= 601px) */
+@media (min-width: 601px) {
+    /* Masque le bouton hamburger sur les grands écrans */
+    #hamburger-menu-btn {
+        display: none;
+    }
+
+    /* Affiche les icônes directement dans la barre du haut sur grand écran */
+    .right-nav > button,
+    .right-nav > select {
+        display: flex; /* Ou block, ou inline-flex, selon la disposition */
+        /* Réinitialise les styles que le dropdown-menu pourrait avoir imposés */
+        position: static;
+        margin-bottom: 0;
+        width: 40px; /* Taille normale des boutons */
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    #voice-select {
+        width: auto;
+        padding: 0.2rem 0.5rem;
+        font-size: 0.8rem;
+    }
+
+
+    /* Le menu déroulant lui-même est masqué sur grand écran, ou son contenu est affiché directement */
+    .dropdown-menu {
+        display: none; /* Cache le conteneur du menu déroulant sur grand écran */
+    }
+
+    /* Si vous voulez que les icônes du dropdown s'affichent directement SANS le dropdown */
+    /* Vous devriez alors déplacer les icônes HORS du div .dropdown-menu-container dans le HTML pour grand écran */
+    /* Ou gérer plus finement le display: flex/none pour les enfants directs de .right-nav */
+    /* Pour l'instant, le setup actuel masque le dropdown-menu-container sur grand écran,
+       ce qui est simple et efficace si vous voulez juste le hamburger sur mobile */
+}
+
+
+/* Désactiver l'impression */
+@media print {
+    body {
+        display: none;
+    }
+}
+
+#ai-assistant-icon {
+    width: 64px;
+    height: 64px;
+    background-image: url('icone512.png');
+    background-size: cover;
+    position: fixed;
+    bottom: 80px; /* Ajusté pour ne pas chevaucher la barre du bas */
+    right: 20px;
+    z-index: 1000;
+    cursor: grab;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#ai-chat-box {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    bottom: 150px; /* Ajusté pour ne pas chevaucher la barre du bas et l'icône de l'assistant */
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background: var(--bg-color, #fff);
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+#ai-chat-box header {
+    padding: 10px;
+    background: #1e3a8a;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+#chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background: var(--bg-color, #f0f0f0);
+}
+
+.chat-message {
+    margin: 6px 0;
+    padding: 8px 12px;
+    border-radius: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.chat-user {
+    align-self: flex-end;
+    background: gold;
+    color: black;
+}
+
+.chat-ai {
+    align-self: flex-start;
+    background: #000;
+    color: white;
+}
+
+#ai-chat-box footer {
+    padding: 8px;
+    display: flex;
+    gap: 6px;
+    background: #f9f9f9;
+}
+
+#ai-input {
+    flex: 1;
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+#ai-send-btn {
+    padding: 6px 10px;
+    background: #1e3a8a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
