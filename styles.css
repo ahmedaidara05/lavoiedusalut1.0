@@ -17,22 +17,23 @@ body {
 }
 
 header {
-    background: #1a3c34;
+    background: #1a3c34; /* Couleur verte corrigée */
     color: white;
     display: flex;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 0; /* Padding ajusté pour toute la largeur */
     position: fixed;
-    width: 100%;
+    width: 100%; /* Assure la largeur complète */
     top: 0;
     box-sizing: border-box;
     z-index: 1000;
+    left: 0; /* Corrige l'alignement gauche */
 }
 
 .logo {
     width: 30px;
     height: 30px;
-    margin-right: 15px;
+    margin: 0 15px; /* Ajusté pour un alignement correct */
 }
 
 header h1 {
@@ -47,7 +48,8 @@ header h1 {
     border: none;
     color: white;
     font-size: 20px;
-    margin-right: 15px;
+    margin: 0 15px; /* Ajusté pour alignement */
+    cursor: pointer;
 }
 
 .close-customize-btn, .close-voice-btn {
@@ -83,7 +85,7 @@ header h1 {
 }
 
 .book-description {
-    font-size: 14px;
+    font-size: 18px;
     color: #666;
     margin-top: 15px;
     line-height: 1.5;
