@@ -221,17 +221,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.color-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-            document.getElementById('readingContent').style.backgroundColor = btn.getAttribute('data-color');
+            const content = document.getElementById('readingContent');
+            content.style.backgroundColor = btn.getAttribute('data-color');
+            // Appliquer la couleur au body pour éviter les espaces
+            document.body.style.backgroundColor = btn.getAttribute('data-color');
         });
-    });
-
-    // Changement de langue
-    document.querySelector('.language-btn').addEventListener('click', () => {
-        const lang = prompt('Choisissez une langue (fr/en/ar):', languageSelect.value);
-        if (lang && ['fr', 'en', 'ar'].includes(lang)) {
-            languageSelect.value = lang;
-            updateContent();
-        }
     });
 
     // Zoom
@@ -266,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (textToRead) {
                 const utterance = new SpeechSynthesisUtterance(textToRead);
                 const voices = synth.getVoices();
-                const selectedVoiceName = voiceSelect.value.split('-')[0];
+                const selectedVoiceName = voiceSelect.value.split('-')[0].trim(); // Extrait le nom (ex. "Fatima")
                 utterance.voice = voices.find(voice => voice.name.toLowerCase().includes(selectedVoiceName.toLowerCase())) || voices[0];
                 utterance.lang = languageSelect.value === 'ar' ? 'ar-SA' : (languageSelect.value === 'en' ? 'en-US' : 'fr-FR');
                 synth.speak(utterance);
@@ -409,12 +403,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const content = suraContents[currentSura] && suraContents[currentSura][languageSelect.value];
         suraTitle.textContent = `Surat ${currentSura}`;
         if (content) {
+            const lines = content.split('<br>');
+            const bismillahLine = lines[0];
+            const rest = lines.slice(1).join('<br>');
             if (languageSelect.value === 'ar') {
-                arabicText.innerHTML = content;
+                arabicText.innerHTML = `<span class="bismillah">${bismillahLine}</span><br>${rest}`;
                 textContent.style.display = 'none';
                 arabicText.style.display = 'block';
             } else {
-                textContent.innerHTML = content;
+                textContent.innerHTML = `<span class="bismillah">${bismillahLine}</span><br>${rest}`;
                 arabicText.style.display = 'none';
                 textContent.style.display = 'block';
             }
