@@ -5,7 +5,8 @@ self.addEventListener('install', (event) => {
                 '/',
                 '/index.html',
                 '/styles.css',
-                '/script.js'
+                '/script.js',
+                '/logo.png' // Ajout du logo pour le cache
             ]).catch(err => {
                 console.warn('Failed to cache some resources:', err);
             });
