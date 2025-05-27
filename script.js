@@ -177,18 +177,21 @@ document.addEventListener('DOMContentLoaded', () => {
         textContent.style.fontSize = `${e.target.value}px`;
     });
 
-    // Favoris
-    document.querySelector('.favorite-btn').addEventListener('click', () => {
-        if (!favorites.includes(currentSura) && currentSura >= 1 && currentSura <= 44) {
-            favorites.push(currentSura);
-            localStorage.setItem('favorites', JSON.stringify(favorites));
-            updateFavorites();
-        }
-    });
+// Favoris
+    function updateFavoritesButton() {
+        favoritesBtn.textContent = favorites.includes(currentSura) ? '★' : '☆';
+    }
 
-    document.querySelector('.favorites-btn').addEventListener('click', () => {
-        favoritesPage.style.display = favoritesPage.style.display === 'none' ? 'block' : 'none';
-        readingPage.style.display = favoritesPage.style.display === 'block' ? 'none' : 'block';
+    document.querySelector('.header-icons .favorites-btn').addEventListener('click', () => {
+        const index = favorites.indexOf(currentSura);
+        if (index === -1) {
+            favorites.push(currentSura);
+            favoritesBtn.textContent = '★';
+        } else {
+            favorites.splice(index, 1);
+            favoritesBtn.textContent = '☆';
+        }
+        localStorage.setItem('favorites', JSON.stringify(favorites));
         updateFavorites();
     });
 
@@ -203,12 +206,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     updateContent();
                     favoritesPage.style.display = 'none';
                     readingPage.style.display = 'block';
+                    updateFavoritesButton();
                 });
                 favoritesList.appendChild(li);
             }
         });
     }
     updateFavorites();
+
+    // Afficher la page des favoris
+    favoritesBtn.addEventListener('click', () => {
+        if (favoritesPage.style.display === 'none') {
+            favoritesPage.style.display = 'block';
+            readingPage.style.display = 'none';
+            updateFavorites();
+        }
+    });
 
     // Personnalisation
     document.querySelector('.customize-btn').addEventListener('click', () => {
