@@ -867,7 +867,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 ]
             }
         },
-        44: { ar: "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ<br>حم ۚ وَٱلْكِتَٰبِ ٱلْمُبِينِ", en: "In the name of Allah, the Most Gracious, the Most Merciful<br>Ha Mim. By the clear Book...", fr: "Au nom d'Allah, le Tout Miséricordieux, le Très Miséricordieux<br>Ha Mim. Par le Livre clair..." }
+        44: {
+            ar: "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ<br>الم ۝ ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ",
+            en: "In the name of Allah, the Most Gracious, the Most Merciful<br>Alif Lam Mim. Allah, there is no deity except Him, the Ever-Living, the Sustainer of existence",
+            fr: "Au nom d'Allah, le Tout Miséricordieux, le Très Miséricordieux<br>Alif Lam Mim. Allah, il n'y a de divinité sauf Lui, le Vivant, le Subsistant",
+            paragraphs: {
+                ar: [
+                    "سورة آل عمران هي سورة مدنية تُركز على تعزيز الإيمان وتوحيد الله، وتتناول قصص الأنبياء وأهمية الصبر والثبات في مواجهة التحديات.",
+                    "تؤكد هذه السورة على وحدانية الله وصفاته العظيمة، مما يدعو المؤمنين إلى التفكر في عظمة الخالق والالتزام بتعاليمه."
+                ],
+                en: [
+                    "Surah Aal-E-Imran is a Medinan surah that focuses on strengthening faith and the oneness of Allah, addressing stories of prophets and the importance of patience and steadfastness in facing challenges.",
+                    "This surah emphasizes the oneness of Allah and His great attributes, encouraging believers to reflect on the Creator’s majesty and adhere to His teachings."
+                ],
+                fr: [
+                    "La sourate Aal-E-Imran est une sourate médinoise qui met l'accent sur le renforcement de la foi et l'unicité d'Allah, abordant les histoires des prophètes et l'importance de la patience et de la fermeté face aux défis.",
+                    "Cette sourate insiste sur l'unicité d'Allah et Ses attributs grandioses, incitant les croyants à réfléchir sur la majesté du Créateur et à suivre Ses enseignements."
+                ]
+            }
+        }
     };
 
     // Navigation
