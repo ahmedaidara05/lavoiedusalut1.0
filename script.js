@@ -146,7 +146,56 @@ document.addEventListener('DOMContentLoaded', () => {
 "« La croyance en un Dieu unique, Allah, qui est sans associé ni égal. Votre foi – ô vous les adolescents ! – en Celui à qui appartiennent les petits et les grands consiste en ce que vous croyez en Dieu, aux Anges, aux Livres révélés de Celui qui guide l’homme ou la femme engagée dans la Voie de Dieu. Au jour du Jugement dernier, aux Nobles Envoyés de Dieu et au Décret Divin (...). Votre foi en votre Seigneur est d’attester que Son Existence est réelle. Il est le Primordial sans commencement, Il est le Subsistant sans fin, Il est différent de la totalité des créatures, Il se suffit à Lui-Même, (...). Il est Unique, Il n’a point de second, Il n’a jamais cessé – qu’Il soit Exalté ! – de prouver Sa Grandeur dans toutes Ses Manifestations. Il est Singulier, Lui qui est l’Unique, dans Son Essence, Ses Attributs et l’ensemble de Ses Actes ; (...). Il n’a de second ni dans Son Essence, ni dans Ses Attributs, ni dans Ses Actes, et Il élit qui Il veut. Puissance et Volonté Lui reviennent nécessairement ; par conséquent, adorez-Le et vénérez-Le.",
 "La croyance en les anges, qui sont des êtres spirituels créés par Dieu. La croyance en eux est d’affirmer et d’être à la fois convaincu que leur existence est indiscutable et qu’ils sont préservés des péchés. Ils sont des créatures qui n’excrètent ni matières fécales, ni urine ; ils sont des êtres totalement purifiés. Aucun des Anges de Dieu ne mange (paix sur eux) ni ne boit. Ils sont des serviteurs placés dans une honorabilité éternelle et aucun d’entre eux ne désobéit à Allah. Chacun accomplit les ordres qu’il reçoit de la part de Dieu. Leur Seigneur, le Subsistant, les a créés à partir de la lumière, cela est sans équivoque. Célébrer la Gloire de leur Seigneur reste leur breuvage. Le sanctifier constitue leur nourriture, n’en doutez point !",
                     "La croyance en les prophètes et messagers de Dieu, y compris Adam, Noé, Abraham, Moïse, Jésus et Muhammad. Votre croyance aux Envoyés est d’avoir foi en eux et d’admettre l’authenticité du Message reçu de leur Seigneur. Quant à eux, la Sincérité, la fidélité et la Transmission sont nécessaires à leur égard. Le Mensonge, le Parjure et la Dissimulation sont déclarés illégaux à leur endroit par Celui qui rétribue. Je veux dire qu’ils sont dans leur totalité inadmissibles pour les Envoyés ; soyez constants à prier sur eux, ô bonhommes ! Admettez qu’ils sont passibles de tout ce qui, parmi les accidents, n’engendre pas de handicaps pour les exigences du public, à l’instar de la maladie. Si elle n’est pas de celles qui sont repoussantes, telles que la lèpre et la ladrerie, car chacun d’eux (les Prophètes) est d’une parfaite honorabilité. Quant à vendre, acheter, se marier et tous les autres actes du genre, de ce qui est licite auprès de Dieu, cela ne fait qu’augmenter leurs avantages auprès du Tout-Généreux ; le Plus Noble et le Plus Digne de Reconnaissance. Quant à la preuve de leur Sincérité, ce sont les Miracles qui leur proviennent du Majestueux.",
-                    "Le nombre des Envoyés est de trois cent treize (...). Quant à l’ensemble des Prophètes et des Envoyés, leur nombre s’élève à cent vingt-quatre mille (...). Que le Plus Pur Salut de Dieu, accompagné de Sa Prière, soit sur eux, sans fin. »"   
+                    "Le nombre des Envoyés est de trois cent treize (...). Quant à l’ensemble des Prophètes et des Envoyés, leur nombre s’élève à cent vingt-quatre mille (...). Que le Plus Pur Salut de Dieu, accompagné de Sa Prière, soit sur eux, sans fin. »",
+                    "4. La croyance en les livres sacrés révélés par Dieu, d’abord le Coran. Votre croyance aux Livres (sacrés) est de reconnaître que leur Révélation est véridique et que le Message qu’ils véhiculent dans leur totalité est vrai, sans aucun doute ; celui qui a foi en eux gagne en élévation. Leur nombre correspond à cent quatre ; parmi eux, dix ont été révélés au Prophète Adam, selon la source bien établie. Cinquante ont été révélés à son fils Seth ; trente à Esdras ; dix à l’Ami de Dieu (Il s’agit du Prophète Abraham), dans l’ordre de succession. Parmi eux, la Thora (Pentateuque) fut confiée à Moïse, l’Évangile à Jésus. Les Psaumes furent reçus par David, tout comme le Discernement (le Coran) fut destiné au Louangé (Al Mahmoud ; le Prophète Muhammad). Sur eux la Paix et le Salut, aussi longtemps qu’ils auront l’Estime du Maître des créatures.",
+
+"5. La croyance en la vie après la mort et au Jour du Jugement. Votre croyance en ce Jour est d’être convaincu de son avènement et de ce qu’il comporte. Réveille-toi ! Ce jour inclut des événements tels que : la Résurrection, le Grand Rassemblement, la Balance, la Vasque (Al Hawd), le Paradis et l’Enfer, ainsi que le Pont, le Passage (sur le pont), le Règlement de Compte, l’intercession du Prophète et le Châtiment (cruel). À chaque individu sera demandé des comptes jusque dans les moindres détails : le Qitmir, le Fatîl et le Naqîr.",
+
+"La distinction lexicologique entre ces termes est la suivante : Naqîr désigne l’enveloppe extérieure de la graine de datte. Fatîl est ce qui est dans le creux du noyau. Qitmir désigne la membranule blanche et translucide, selon la glose.",
+                    "Il y aura également un règlement entre une victime sans corne et un coupable cornu, en signe de loyauté. (...) La Mort, l’Interrogatoire et le Châtiment dans la tombe font aussi partie du Grand Jour, sache-le. Car le processus de la Résurrection comprend deux étapes : la petite, qui commence dès la mort de tout être humain, et la grande, qui survient après le Souffle dans la Trompette (...).",
+
+"L’islam et ses principes éthiques et sociaux", 
+"L’islam est une religion qui englobe de nombreux aspects de la vie quotidienne de ses adeptes. En plus des croyances et des pratiques religieuses que j’ai mentionnées précédemment, l’islam encourage aussi l’éthique, la moralité et la justice sociale.",
+
+"L’éthique islamique repose sur des principes tels que l’honnêteté, la bienveillance, la générosité, le respect des autres et l’intégrité. Les musulmans sont incités à mener une vie équilibrée et à rechercher le bien-être physique, mental et spirituel.",
+
+"La moralité occupe également une place importante dans l’islam. Les musulmans sont invités à se comporter de manière juste et équitable envers les autres, à respecter les droits des individus, à être bons envers leurs parents, leur famille et leurs voisins, et à traiter tous les êtres humains avec dignité et respect.",
+
+"La justice sociale est un aspect essentiel de l’islam. Les musulmans sont encouragés à s’engager dans des actions bénéfiques pour la société, tels que le soutien aux pauvres, aux orphelins, aux veuves et aux personnes dans le besoin. L’islam met également l’accent sur l’éradication des injustices sociales, de la discrimination et de l’oppression.",
+
+"Il convient de mentionner que l’islam encourage la recherche du savoir et de l’éducation. L’apprentissage est considéré comme une obligation pour chaque musulman. La science, les arts et la philosophie ont joué un rôle important dans l’histoire de l’islam, apportant des contributions significatives dans de nombreux domaines.",
+
+"L’islam est une religion diversifiée, avec de nombreuses cultures et traditions différentes. Les pratiques et les coutumes varient selon les pays et les communautés musulmanes. Les différentes écoles de pensée au sein de l’islam peuvent interpréter certains aspects de la religion différemment.",
+
+"Les fondements de l’islam",  
+"L’une des bases fondamentales de l’islam est la croyance en un Dieu unique, appelé Allah. Les musulmans affirment que Muhammad est le dernier prophète envoyé par Allah pour transmettre Sa révélation, le Coran. Ce dernier est la parole de Dieu telle qu’elle a été révélée à Muhammad.",
+
+"La pratique religieuse principale de l’islam repose sur les cinq piliers suivants :",  
+"1. La profession de foi (chahada) : Les musulmans déclarent leur foi en disant : « Il n’y a de Dieu qu’Allah et Muhammad est Son prophète ». Cela constitue une affirmation de la croyance en l’unicité de Dieu et en la prophétie de Muhammad.",  
+"2. La prière (salât) : Les musulmans sont tenus d’accomplir cinq prières quotidiennes à des moments spécifiques de la journée. Ces prières impliquent des mouvements physiques et sont accompagnées de récitations du Coran.",
+"3. L’aumône (zakât) : Les musulmans doivent donner une partie de leur richesse aux moins fortunés, généralement sous forme d’aumône annuelle calculée en fonction de leurs biens.",
+
+"4. Le jeûne (sawm) : Pendant le mois du Ramadan, les musulmans s’abstiennent de manger, de boire et d’avoir des relations sexuelles du lever au coucher du soleil. Le jeûne est un moyen d’auto-purification, de renforcement de la foi, de discipline et de compassion envers les moins fortunés.",
+
+"5. Le pèlerinage à La mecque (hajj) : Les musulmans qui en ont les moyens financiers et physiques sont tenus de faire le pèlerinage à La Mecque une fois dans leur vie. Le hajj est une expérience spirituelle intense qui rassemble des millions de musulmans du monde entier.",
+
+"L’islam, la famille et les relations interreligieuses.",
+
+"L’islam accorde également une grande importance à la famille et aux liens sociaux. Le mariage est considéré comme un engagement sérieux entre un homme et une femme, fondé sur l’amour, le respect mutuel et la coopération. Les parents sont considérés comme les premiers éducateurs des enfants et l’entraide entre les membres de la famille est encouragée.",
+
+"En ce qui concerne les relations avec les autres religions, l’islam prône le respect mutuel et le dialogue interreligieux. Les musulmans sont appelés à vivre en harmonie avec les personnes de différentes croyances et à promouvoir la paix et la justice. L’islam reconnaît également les prophètes et les textes sacrés antérieurs, tels que Jésus et l’Évangile.",
+
+"Le christianisme : Origine et croyances fondamentales",
+
+"Le christianisme est une religion qui trouve ses origines au Proche-Orient. Les chrétiens considèrent Jésus-Christ comme le Messie annoncé par les prophètes de l’Ancien Testament. La foi en la résurrection de Jésus est au cœur du christianisme, car elle symbolise pour les croyants le début d’un espoir d’éternité libéré du mal. La foi chrétienne, qu’elle soit catholique, orthodoxe ou protestante, repose sur la croyance en la Trinité divine : le Père, le Fils et le Saint-Esprit. Elle repose également sur la certitude de la rédemption des péchés obtenue par la Passion et la Résurrection de Jésus.",
+
+"Les principes fondamentaux du christianisme",
+
+"Les principes du christianisme incluent l’amour de Dieu et l’amour du prochain. Jésus est vu comme le Fils de Dieu et le Messie. Le message central du christianisme est celui du salut par la grâce de Dieu. Les chrétiens croient que Jésus a donné sa vie en sacrifice pour racheter l’humanité de ses péchés et offrir la possibilité d’une réconciliation avec Dieu. Cette croyance en la rédemption par le Christ est au cœur de la foi chrétienne.",
+
+"Valeurs et principes moraux",
+
+"Le christianisme incite ses adeptes à vivre selon des valeurs morales élevées, telles que l’amour, la compassion, la justice et le pardon. Cette vision éthique guide les chrétiens dans leur vie quotidienne, en les encourageant à pratiquer ces valeurs envers autrui."
                 ]
             }
         },
