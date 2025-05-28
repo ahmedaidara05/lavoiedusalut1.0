@@ -1,7 +1,7 @@
 {
     "name": "La Voie du Salut",
     "short_name": "Voie du Salut",
-    "description": "Application de lecture spirituelle",
+    "description": "Application de lecture du livre de Ahmed Said Aidara en mode numérique",
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#F1F4F8",
