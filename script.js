@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         1: {
             ar: "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ<br>ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ",
             en: "In the name of Allah, the Most Gracious, the Most Merciful<br>Praise be to Allah, the Lord of all the worlds",
-            fr: "Au nom d'Allah, le Tout Miséricordieux, le Très Miséricordieux<br>Louange à Allah, Seigneur des mondes",
+            fr: "1ERE PARTIE<br>PREFACE",
             paragraphs: {
                 ar: [
                     "سورة الفاتحة هي أول سورة في القرآن الكريم وتُعتبر مفتاح القرآن. تُسمى أيضًا أم الكتاب لأنها تُلخص المبادئ الأساسية للإيمان والعبادة.",
@@ -64,8 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     "This surah includes a supplication and plea to Allah, where the believer seeks guidance on the straight path, making it a cornerstone of daily prayers."
                 ],
                 fr: [
-                    "La sourate Al-Fatiha est le premier chapitre du Coran et est considérée comme la clé du Coran. Elle est aussi appelée la Mère du Livre, car elle résume les principes fondamentaux de la foi et de l'adoration.",
-                    "Cette sourate comprend une supplication et une imploration à Allah, où le croyant demande la guidance sur le droit chemin, ce qui en fait une base essentielle des prières quotidiennes."
+                    "Loin de nous l’esprit de dénigrer, mais près de nous l’esprit d’éveiller. Ainsi donc, motivé par l’amour de la vérité et le respect que j’ai envers tous les non-musulmans, je m’adresse à vous (homme de Dieu, frère dans la foi), avec la sincère intention de ne me permettre, après avoir médité la parole de Dieu, de garder le minimum que j’ai acquis.",
+                    "Dieu dit dans le Coran ; Et Nous avons rendu le Coran facile à retenir."
+                    "TESTE POUR VOIR SI LE 3EME PARAGRAPHE MARCHE"
                 ]
             }
         },
