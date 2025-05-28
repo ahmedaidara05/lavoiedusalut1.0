@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
         5: {
             ar: "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ<br>يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ أَوْفُوا۟ بِٱلْعُقُودِ",
             en: "In the name of Allah, the Most Gracious, the Most Merciful<br>O you who have believed, fulfill [all] contracts...",
-            fr: "Au nom d'Allah, le Tout Miséricordieux, le Très Miséricordieux<br>Ô vous qui avez cru, remplissez les contrats...",
+            fr: "POUrQUOi m’A-T-ON Créé ?<br>Naître pour accomplir",
             paragraphs: {
                 ar: [
                     "سورة المائدة هي سورة مدنية تُركز على الأحكام الشرعية والعقود، مع التأكيد على أهمية الوفاء بالعهود والالتزام بالأخلاق.",
@@ -392,8 +392,36 @@ document.addEventListener('DOMContentLoaded', () => {
                     "The surah includes guidance on relations with the People of the Book and calls for justice and kindness in dealing with others."
                 ],
                 fr: [
-                    "La sourate Al-Ma’idah est une sourate médinoise qui se concentre sur les règles juridiques et les contrats, soulignant l'importance de respecter les engagements et d'adhérer aux principes éthiques.",
-                    "La sourate inclut des directives sur les relations avec les Gens du Livre et appelle à la justice et à la bienveillance dans les interactions avec autrui."
+                    "Dieu, le Créateur, ne crée que pour des raisons profondes et des intérêts universels, certains que nous comprenons et d’autres que nous ignorons. Allah s’est exprimé dans ce sens dans Son Livre. Il a expliqué qu’Il n’a rien créé en vain et surtout pas les cieux et la terre. À ce propos, le Très Haut dit :",  
+"(Coran 23/115-116) «Pensiez-vous que Nous vous avions créés sans but, et que vous ne seriez pas ramenés vers Nous ? Que soit exalté Allah, le vrai Souverain ! Pas de divinité en dehors de Lui, le Seigneur du Trône sublime !» Il a dit encore : « Ce n’est pas par jeu que Nous avons créé le ciel et la terre et ce qui est entre eux. »",  
+"(Coran 21/16-17) « et : Ce n’est pas par divertissement que Nous avons créé les cieux et la terre et ce qui est entre eux. Si Nous avions voulu Nous donner un divertissement, Nous l’aurions pris venant de Nous, si c’est ce que Nous avions voulu faire.  »",  
+"(Coran 46/3) « Nous n’avons créé les cieux et la terre et ce qui est entre eux qu’en toute vérité et [pour] un terme fixé. Ceux qui ont mécru se détournent de ce dont ils ont été avertis.  »",  
+"La sagesse qui sous-tend la création de l’homme est attestée par la religion et la raison. De sorte que tout homme raisonnable est obligé de reconnaître que la création des choses repose sur la sagesse. L’homme raisonnable se refuse d’entreprendre dans le cadre de sa vie des activités contraires à la sagesse. Comment dès lors Allah Très-Haut, le plus sage des sages, pourrait-il agir en dehors ?",  
+"Voilà pourquoi les croyants raisonnables soutiennent que la création de Dieu repose sur la sagesse. Seuls les mécréants le nient. Il dit encore pour expliquer l’attitude des mécréants à l’égard de la sagesse qui sous-tend la Création :",  
+"« Nous n’avons pas créé le ciel et la terre et ce qui existe entre eux en vain. C’est ce que pensent ceux qui ont mécru. malheur à ceux qui ont mécru pour le feu (qui les attend) ! » (Coran 38/27)",  
+"Premièrement, Allah Très-Haut nous informe de la perfection de Sa sagesse qui fonde la création des cieux et de la terre ; Il nous dit qu’Il ne les a pas créés en vain, c’est-à-dire comme un jeu sans intérêt ni utilité. C’est pourtant ce que croient les infidèles qui démentent leur Maître et pensent à Son égard ce qui ne convient pas à Sa majesté.",  
+"Malheur aux infidèles destinés à l’enfer. Celui-ci leur réservera un accueil juste et un traitement mérité. Dieu n’a créé les cieux et la terre que par la vérité et pour la vérité ; Il les a créés pour que les fidèles sachent la perfection de Sa science, de Sa puissance et de l’ampleur de Son autorité et Son unicité en tant que seul digne d’être adoré, contrairement à celui qui n’a même pas créé l’équivalent d’un atome sur terre ou dans les cieux…",  
+"Les fidèles doivent savoir aussi que la résurrection est vraie et qu’Allah départagera les bons et les mauvais. (Voir Tafsir as-Saadi, p. 712).",  
+"Deuxièmement, Dieu n’a pas créé l’homme dans le seul but qu’il puisse manger, boire et procréer comme les bêtes. Car Il l’a honoré et préféré à beaucoup d’autres créatures.",  
+"Mais la plupart des hommes s’obstinent dans la mécréance. Par ignorance, ils rejettent la véritable raison pour laquelle ils ont été créés et se préoccupent exclusivement des jouissances de la vie d’ici-bas, à l’instar des animaux.",  
+"Ils sont plus égarés que les bêtes selon ces propos du Très Haut : (Coran 47/12) « Ceux qui croient et accomplissent de bonnes œuvres, Allah les fera entrer dans des Jardins sous lesquels coulent les ruisseaux. et ceux qui mécroient jouissent et mangent comme mangent les bestiaux ; et le Feu sera leur lieu de séjour ».",  
+"Il dit dans un autre verset : (Coran 16/3) « et : il a créé les cieux et la terre avec juste raison. il transcende ce qu’on (Lui) associe ».",  
+"Le Très Haut dit encore : (Coran 7/179) «Nous avons destiné beaucoup de djinns et d’hommes pour l’enfer. ils ont des cœurs, mais ne comprennent pas. ils ont des yeux, mais ne voient pas. ils ont des oreilles, mais n’entendent pas. Ceux-là sont comme les bestiaux, même plus égarés encore. Tels sont les insouciants »",  
+"Les hommes raisonnables savent tous que celui qui a fabriqué un objet connaît mieux que quiconque la raison pour laquelle il l’a créé. Dieu fournit le meilleur exemple.",  
+"Car, étant celui qui a créé les humains, Il est aussi celui qui connaît mieux pourquoi Il les a créés. Cette affirmation n’est discutée par personne quand elle s’applique aux affaires mondaines.",  
+"En outre, tous les gens affirment que leurs organes sont sagement dotés de fonction ; l’œil voit, les oreilles entendent, etc. Peut-on accepter raisonnablement que ses organes soient créés pour une raison alors que son être le soit en vain ! ?",  
+"Peut-on ne pas se satisfaire de l’explication du motif de la création donnée par le Créateur ? !",  
+"Troisièmement, Allah a expliqué qu’Il a créé les cieux, la terre, la vie et la mort pour éprouver les gens afin qu’il se distingue, celui qui Lui obéit de celui qui Lui désobéit de manière à mériter son châtiment. À ce propos, le Très Haut dit : (Coran 11/7) « et c’est Lui qui a créé les cieux et la terre en six jours – alors que son Trône était sur l’eau, afin d’éprouver lequel de vous agirait le mieux. et si tu dis : «Vous serez ressuscités après la mort», ceux qui ne croient pas diront : «Ce n’est là qu’une magie évidente » ».",  
+"Et : (Coran 67/2) «Celui qui a créé la mort et la vie afin de vous éprouver (et de savoir) qui de vous est le meilleur en œuvre, et c’est Lui le Puissant, le Pardonneur ».",  
+"L’épreuve ci-dessus mentionnée laisse apparaître les traces des noms et des attributs de l’Éternel, comme Ses noms : arrahman, al-Ghafour, al-hakim, at-Tawwab, ar-rahim entre les autres noms qui font partie des plus beaux.",  
+"Parmi les plus importants objectifs qu’Allah a visés à travers la création, les plus grands objets d’épreuve, l’ordre qu’Il a donné de témoigner de Son unicité absolue et de l’Adorer Lui seul sans rien lui associer.",  
+"Dieu Très Haut a précisé cette raison de la création de l’homme lorsqu’Il a dit: « je n’ai créé les djinns et les hommes qu’afin qu’ils m’adorent ». (Coran 51/56)",  
+"Dieu a créé l’être humain pour qu’elle l’adore et le connaisse par ses noms et attributs. Il leur a donné l’ordre de faire cela.",  
+"Celui d’entre eux qui se soumet et exécute les ordres reçus sera parmi les bienheureux. Celui qui se détourne de cela sera parmi les perdants.",  
+"Il les rassemblera inévitablement dans l’au-delà pour les rétribuer selon leur attitude envers ses ordres et ses interdits.",  
+"Voilà pourquoi Allah évoque le démenti proféré par les polythéistes à propos de son ultime rétribution des actes :",  
+"« et c’est Lui qui a créé les cieux et la terre en six jours, alors que son Trône était sur l’eau, afin d’éprouver lequel de vous agirait le mieux. et si tu dis : «Vous serez ressuscités après la mort», ceux qui ne croient pas diront : «Ce n’est là qu’une magie évidente »  » (Coran 11/7).",  
+"C’est-à-dire : si vous vous adressez à ceux-ci pour les informer de la Résurrection après la mort, ils ne vous croiront pas. Bien au contraire, ils vous opposeront le plus sévère démenti et mettent en cause ton message en exprimant : Ce n’est là qu’une magie évidente. Pourtant, c’est la vérité éclatante."
                 ]
             }
         },
