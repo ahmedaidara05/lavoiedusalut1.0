@@ -885,7 +885,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "La sourate aborde des sujets tels que l'héritage, le mariage et les transactions équitables, appelant à la construction d'une société fondée sur la justice et la compassion."
                 ]
             }
-        },
+        }
         };
 
     // Navigation
