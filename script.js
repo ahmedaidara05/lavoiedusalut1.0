@@ -90,8 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     "The surah begins by discussing the Quran as a book of guidance, emphasizing the importance of piety and faith in Allah as the foundation for understanding and applying its teachings."
                 ],
                 fr: [
-                    "La sourate Al-Baqarah est la plus longue sourate du Coran, une sourate médinoise qui aborde de nombreuses lois et règles régissant la vie des musulmans.",
-                    "La sourate commence par parler du Coran comme un livre de guidance, soulignant l'importance de la piété et de la foi en Allah comme fondement pour comprendre et appliquer ses enseignements."
+                    "Louange à Allah, le digne d’être adoré, je témoigne qu’il est la seule divinité. J’atteste que mouhamad et Jésus-Christ sont des messagers de la part d’Allah, que les prières et les bénédictions du Seigneur soient sur eux. Dans ce livre, ce sont les textes sacrés qui parlent. Avec attirance, l’ouvrage de mouhamad haydara s’impose par son degré d’argumentation et de pertinence. Il est bon d’inviter son prochain (non croyant) à devenir musulman, mais il serait meilleur qu’il soit certifié, assuré et textuel.",
+                    "Aujourd’hui, mouhamad haydara donne la chance aux croyants de défendre leur religion, assure la foi de plusieurs musulmans que l’islam est la vérité et nous invite à appeler les non-musulmans à venir consulter l’islam. Dieu dit dans le Coran, sourate 16, verset 125 : « Par la sagesse et la bonne exhortation, appelle (les gens) au sentier de ton Seigneur. Et discute avec eux de la meilleure façon ». Bien sûr, cela peut se faire, on peut ne pas être d’accord et avoir des points de divergence, mais cela n’empêche pas de vivre en paix, en considération et en cohésion sociale.",
+                    "L’auteur ne s’est pas mis ici à une attaque, mais à une étude comparative, à un avertissement. Cela fait de la voie du salut une invitation à son lecteur à entrer dans une sphère sérieuse qu’est la foi. Ce livre dévoile la Vraie Voie qui nous mène au Salut et qui est la clé du paradis.",
+                    "La première partie est consacrée à une révision des bases de l’islam et un petit coup d’œil au christianisme. Il aborde ensuite des interrogations profondes sur l’existence humaine, le sens de notre création, notre destinée, en illuminant majestueusement le chemin vers le Salut. Après cela, arrive la section intéressante pour les Chrétiens. La deuxième et dernière partie est consacrée à la voie du salut composée de plusieurs chapitres, dans lesquels sont inclus un appel et un rappel. Scannons ensemble le Coran et la Bible !",
+                    " Cheikh Abdallah Niass,",
+                    " PDG de l’institut Al Mouyassar"
                 ]
             }
         },
