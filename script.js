@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         3: {
             ar: "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ<br>الم ۝ ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ",
             en: "In the name of Allah, the Most Gracious, the Most Merciful<br>Alif Lam Mim. Allah, there is no deity except Him, the Ever-Living, the Sustainer of existence",
-            fr: "Au nom d'Allah, le Tout Miséricordieux, le Très Miséricordieux<br>Alif Lam Mim. Allah, il n'y a de divinité sauf Lui, le Vivant, le Subsistant",
+            fr: "LA GENESE<br>Au nom de Dieu, le Tout Miséricordieux, le Très Miséricordieux",
             paragraphs: {
                 ar: [
                     "سورة آل عمران هي سورة مدنية تُركز على تعزيز الإيمان وتوحيد الله، وتتناول قصص الأنبياء وأهمية الصبر والثبات في مواجهة التحديات.",
@@ -113,15 +113,47 @@ document.addEventListener('DOMContentLoaded', () => {
                     "This surah emphasizes the oneness of Allah and His great attributes, encouraging believers to reflect on the Creator’s majesty and adhere to His teachings."
                 ],
                 fr: [
-                    "La sourate Aal-E-Imran est une sourate médinoise qui met l'accent sur le renforcement de la foi et l'unicité d'Allah, abordant les histoires des prophètes et l'importance de la patience et de la fermeté face aux défis.",
-                    "Cette sourate insiste sur l'unicité d'Allah et Ses attributs grandioses, incitant les croyants à réfléchir sur la majesté du Créateur et à suivre Ses enseignements."
+                    " La Voie du Salut est un chemin que chaque âme doit découvrir et emprunter avec pleine conscience, une quête vers la rédemption et la paix éternelle. Ce livre se plonge dans les textes sacrés des grandes religions, cherchant à dévoiler l’unique vérité irréfutable. Il s’agit de découvrir la véritable voie menant au salut dans l’au-delà, un salut qui transcende les dogmes, nous éloignant ainsi de l’enfer dont chaque prophète a mis en garde son peuple.",
+
+" À travers ce voyage spirituel, il est question d’explorer la religion divine. En effet, penser à Dieu est une chose sérieuse et fondamentale. Pour que nos œuvres ne soient vaines, chercher le véritable Dieu qui est digne d’adoration doit constituer le but de chaque être humain qui croit à l’existence d’une vie après la mort.",
+
+" La religion est un système de croyances fondé sur deux liens essentiels : un lien « vertical » entre l’homme et Dieu, et un lien « horizontal » entre les membres d’une communauté humaine.",
+
+" L’étymologie du mot « religion » repose sur deux racines principales : • Le verbe *religare*, qui signifie « relier » : relier les hommes à Dieu (le lien vertical) et les hommes entre eux (le lien horizontal). • Le verbe *religere*, qui évoque l’idée de se recueillir, de réfléchir et de revenir sur soi-même, renvoyant ainsi la religion à une dimension intérieure, définie par la foi.",
+
+" La religion désigne l’ensemble des croyances, des dogmes et des pratiques qui régissent les relations de l’être humain avec le sacré ou la divinité, c’est-à-dire avec une forme de transcendance divine. Malgré la diversité des traditions religieuses, une constante émerge : la croyance en une vie après la mort, à laquelle seuls les fidèles auront accès.",
+
+" Il y a différentes religions monothéistes (Christianisme, Islam, Judaïsme), polythéistes (hindouisme, le shintoïsme) et même des religions sans dieu… (bouddhisme, athée…), etc. Néanmoins, cette diversité présente de nombreux points communs.",
+
+" La religion, en tant qu’ensemble de croyances, soulève la question de la relation entre foi et raison. La religion n’a rien à voir avec aucune forme de savoir ou de connaissance. La connaissance humaine n’a que deux sources de provenance possibles, ou bien la connaissance est le produit de l’expérience, ou bien, elle est le résultat de la réflexion, c’est-à-dire du raisonnement intellectuel fondé sur la logique.",
+
+" Toute religion comprend des croyances relatives à une réalité autre (le surnaturel, le divin, le sacré) et supérieure à la réalité naturelle et humaine (profane) qui la transcende tout en se manifestant en elle. Ce dernier détermine le sens et la valeur. Des mythes racontent, plus qu’ils n’expliquent, l’origine et la finalité du monde naturel et de la condition humaine, par exemple pourquoi et comment l’homme est devenu souffrant, travailleur, mortel…",
+                    
+" Les croyances revendiquent la vérité, mais cette vérité échappe aux moyens humains de démonstration rationnelle, d’observation ou d’expérimentation. Ce sont des « dogmes », des vérités dites « révélées » qui proviennent du divin et sont transmises aux hommes à travers une tradition orale ou des textes considérés comme sacrés. La religion repose également sur une révélation intérieure, suscitant des émotions et des sentiments profonds mêlant crainte, tremblement et fascination, où l’homme se sent dépassé par une force mystérieuse, d’une grandeur incommensurable, et se perçoit comme une créature fragile et insignifiante.",
+
+" Toute religion comprend également des règles de vie, une morale définissant les valeurs, le bien et le mal, posant des obligations et interdits, à valeur absolue, car provenant de la transcendance divine. Ces règles régissent les relations des hommes entre eux, les mœurs, mais aussi les relations des hommes au divin. Toute religion, en effet, impose une pratique cultuelle : des cérémonies, des prières, des sacrifices, des rituels ponctuent la vie et ses événements cruciaux, correspondant à un passage et un renouvellement, comme la naissance, la puberté, le mariage, la mort…",
+
+" Enfin, ces croyances sont presque toujours transmises et ces cultes orchestrés par des hommes médiateurs privilégiés entre le commun des mortels et le divin. Ils détiennent parfois un très grand pouvoir politique comme dans les monarchies de droit divin ou les théocraties.",
+
+" « La religion sans la conscience morale n’est qu’un culte superstitieux », disait Emmanuel Kant.",
+
+" « La religion est un projet de société. Donc il est tout à fait possible de la concilier avec les faits de société. D’ailleurs, c’est ce qui doit être la norme. Mais à cause des incompréhensions, ça devient difficile. Les gens pensent souvent que la religion est venue pour tout interdire. Ce qui n’est pas le cas. L’Islam n’est pas venu uniquement pour les musulmans, il est apparu pour réguler la société humaine. Aujourd’hui, le constat est que la religion est polluée par certaines coutumes ou par la politique. De sorte qu’on n’arrive plus à faire la distinction entre les différentes composantes. De nos jours, c’est la société qui transforme la religion. Alors que c’est le contraire qui devait se produire. » El Hadji Malick Sy (RTA) disait souvent que, dans ce pays, les coutumes et les autres pratiques vont toujours prendre le dessus sur la religion. Parce que c’est ancré en nous. La religion doit être intégrée dans la société afin de l’orienter. Ça peut se faire. » Propos de Sidy Lamine Niass dans son œuvre, *L’Apocalypse Salvatrice*.",
+
+" L’islam est la soumission à la volonté totale du Créateur Unique des cieux et de la terre. L’islam est une religion monothéiste (croyance en un seul Dieu), Muhammad est le dernier prophète envoyé par l’Éternel Dieu et a été annoncé dans l’Ancien et le Nouveau Testament. Les adeptes de l’islam sont appelés les musulmans.",
+
+" Les fondements de l’islam reposent sur le Coran, étant la parole révélée de Dieu (Allah) ; telle que transmise à Muhammad. Les enseignements et les pratiques de l’islam sont également basés sur les hadiths, qui sont les paroles et les actions du prophète Muhammad.",
+                    
+"« La croyance en un Dieu unique, Allah, qui est sans associé ni égal. Votre foi – ô vous les adolescents ! – en Celui à qui appartiennent les petits et les grands consiste en ce que vous croyez en Dieu, aux Anges, aux Livres révélés de Celui qui guide l’homme ou la femme engagée dans la Voie de Dieu. Au jour du Jugement dernier, aux Nobles Envoyés de Dieu et au Décret Divin (...). Votre foi en votre Seigneur est d’attester que Son Existence est réelle. Il est le Primordial sans commencement, Il est le Subsistant sans fin, Il est différent de la totalité des créatures, Il se suffit à Lui-Même, (...). Il est Unique, Il n’a point de second, Il n’a jamais cessé – qu’Il soit Exalté ! – de prouver Sa Grandeur dans toutes Ses Manifestations. Il est Singulier, Lui qui est l’Unique, dans Son Essence, Ses Attributs et l’ensemble de Ses Actes ; (...). Il n’a de second ni dans Son Essence, ni dans Ses Attributs, ni dans Ses Actes, et Il élit qui Il veut. Puissance et Volonté Lui reviennent nécessairement ; par conséquent, adorez-Le et vénérez-Le.",
+"La croyance en les anges, qui sont des êtres spirituels créés par Dieu. La croyance en eux est d’affirmer et d’être à la fois convaincu que leur existence est indiscutable et qu’ils sont préservés des péchés. Ils sont des créatures qui n’excrètent ni matières fécales, ni urine ; ils sont des êtres totalement purifiés. Aucun des Anges de Dieu ne mange (paix sur eux) ni ne boit. Ils sont des serviteurs placés dans une honorabilité éternelle et aucun d’entre eux ne désobéit à Allah. Chacun accomplit les ordres qu’il reçoit de la part de Dieu. Leur Seigneur, le Subsistant, les a créés à partir de la lumière, cela est sans équivoque. Célébrer la Gloire de leur Seigneur reste leur breuvage. Le sanctifier constitue leur nourriture, n’en doutez point !",
+                    "La croyance en les prophètes et messagers de Dieu, y compris Adam, Noé, Abraham, Moïse, Jésus et Muhammad. Votre croyance aux Envoyés est d’avoir foi en eux et d’admettre l’authenticité du Message reçu de leur Seigneur. Quant à eux, la Sincérité, la fidélité et la Transmission sont nécessaires à leur égard. Le Mensonge, le Parjure et la Dissimulation sont déclarés illégaux à leur endroit par Celui qui rétribue. Je veux dire qu’ils sont dans leur totalité inadmissibles pour les Envoyés ; soyez constants à prier sur eux, ô bonhommes ! Admettez qu’ils sont passibles de tout ce qui, parmi les accidents, n’engendre pas de handicaps pour les exigences du public, à l’instar de la maladie. Si elle n’est pas de celles qui sont repoussantes, telles que la lèpre et la ladrerie, car chacun d’eux (les Prophètes) est d’une parfaite honorabilité. Quant à vendre, acheter, se marier et tous les autres actes du genre, de ce qui est licite auprès de Dieu, cela ne fait qu’augmenter leurs avantages auprès du Tout-Généreux ; le Plus Noble et le Plus Digne de Reconnaissance. Quant à la preuve de leur Sincérité, ce sont les Miracles qui leur proviennent du Majestueux.",
+                    "Le nombre des Envoyés est de trois cent treize (...). Quant à l’ensemble des Prophètes et des Envoyés, leur nombre s’élève à cent vingt-quatre mille (...). Que le Plus Pur Salut de Dieu, accompagné de Sa Prière, soit sur eux, sans fin. »"   
                 ]
             }
         },
         4: {
             ar: "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ<br>يَٰٓأَيُّهَا ٱلنَّاسُ ٱتَّقُوا۟ رَبَّكُمُ ٱلَّذِى خَلَقَكُم",
             en: "In the name of Allah, the Most Gracious, the Most Merciful<br>O mankind, fear your Lord, who created you from one soul...",
-            fr: "Au nom d'Allah, le Tout Miséricordieux, le Très Miséricordieux<br>Ô hommes, craignez votre Seigneur qui vous a créés d'une seule âme...",
+            fr: "LA GENESE<br>Au nom de Dieu, le Tout Miséricordieux, le Très Miséricordieux",
             paragraphs: {
                 ar: [
                     "سورة النساء هي سورة مدنية تُركز على حقوق المرأة والعدالة الاجتماعية، مع التأكيد على أهمية تقوى الله في جميع التعاملات.",
