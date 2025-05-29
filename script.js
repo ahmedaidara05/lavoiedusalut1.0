@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchResults = document.getElementById('searchResults');
     const customizePanel = document.getElementById('customizePanel');
     const favoriteBtn = document.querySelector('.favorite-btn');
-    const voicePlayBtn = document.querySelector('.voice-play-btn');
+    const voicePlayBtn = document.querySelector('.customize-panel .voice-play-btn'); // Mis à jour pour le panneau de personnalisation
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     let notes = JSON.parse(localStorage.getItem('notes')) || {};
     let currentSura = 1;
@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
         textContent.style.fontSize = `${currentFontSize}px`;
     });
 
-    // Lecture à haute voix
+    // Lecture à haute voix (maintenant dans le panneau de personnalisation)
     voicePlayBtn.addEventListener('click', () => {
         if (isPlaying) {
             synth.cancel();
