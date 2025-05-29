@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traitement du paiement</title>
+    <style>
+        body {
+            font-family: 'Amiri', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f5f5f0;
+            color: #1a3c34;
+        }
+        .loader {
+            text-align: center;
+        }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #2e7d32;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <div class="spinner"></div>
+        <p>Redirection vers PayTech...</p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://paytech.sn/api/payment/request-payment';
+
+            const apiKey = 'f8a077dfe10504fd7f7386f954c2908b6693ca5a859fe8583efc2a187fb6cced';
+            const apiSecret = '60722af081d51b2f0d4732a2d1699a19a005ca2327aa2665eab4e65dbe4e4332';
+            const amount = 2000;
+            const currency = 'XOF';
+            const reference = `ORDER_${Date.now()}`;
+            const ipnUrl = 'https://yourdomain.com/ipn';
+            const successUrl = 'https://yourdomain.com/index.html?payment=success';
+            const cancelUrl = 'https://yourdomain.com/index.html?payment=cancel';
+
+            const fields = {
+                api_key: apiKey,
+                api_secret: apiSecret,
+                amount: amount,
+                currency: currency,
+                reference: reference,
+                ipn_url: ipnUrl,
+                success_url: successUrl,
+                cancel_url: cancelUrl,
+                item_name: 'La Voie du Salut - Accès Complet',
+                item_price: amount,
+                description: 'Achat de l\'accès complet au livre La Voie du Salut (chapitres 8 à 44)',
+                customer_email: 'client@example.com', // À remplacer dynamiquement si possible
+                customer_phone: '1234567890' // À remplacer dynamiquement si possible
+            };
+
+            for (const [key, value] of Object.entries(fields)) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = value;
+                form.appendChild(input);
+            }
+
+            document.body.appendChild(form);
+            form.submit();
+        });
+    </script>
+</body>
+</html>
