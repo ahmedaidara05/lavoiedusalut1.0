@@ -17,17 +17,17 @@ body {
 }
 
 header {
-    background: #2e7d32; /* Barre verte corrigée */
+    background: #2e7d32;
     color: white;
     display: flex;
     align-items: center;
     padding: 10px 20px;
     position: fixed;
-    width: 100%; /* Assure une largeur complète */
+    width: 100%;
     top: 0;
     box-sizing: border-box;
     z-index: 1000;
-    left: 0; /* Corrige l'alignement gauche */
+    left: 0;
 }
 
 .logo {
@@ -84,7 +84,7 @@ header h1 {
 }
 
 .book-description {
-    font-size: 16px; /* Augmentation de la police */
+    font-size: 16px;
     color: #666;
     margin-top: 15px;
     line-height: 1.5;
@@ -92,14 +92,16 @@ header h1 {
 
 .index-page {
     padding: 60px 20px 20px;
-    height: 100vh;
+    height: calc(100vh - 80px);
     overflow-y: auto;
     background: #fff;
+    box-sizing: border-box;
 }
 
 .index-page ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .index-page li {
@@ -146,6 +148,13 @@ header h1 {
     text-align: center;
 }
 
+/* Ajustement pour les écrans plus petits (téléphones) */
+@media (max-width: 600px) {
+    .search-bar {
+        margin-top: 70px;
+    }
+}
+
 .search-results {
     position: fixed;
     top: 100px;
@@ -174,16 +183,17 @@ header h1 {
 .content {
     margin-top: 0;
     padding: 20px;
-    height: 100%;
+    height: calc(100vh - 120px);
     background: inherit;
     position: relative;
+    overflow-y: auto;
 }
 
 .arabic-text, .text-content {
     font-size: 16px;
     line-height: 1.6;
     color: #1a3c34;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 
 .arabic-text .bismillah, .text-content .bismillah {
@@ -206,7 +216,7 @@ header h1 {
     cursor: pointer;
 }
 
-.favorite-btn, .customize-btn, .voice-play-btn, .ai-btn {
+.favorite-btn, .customize-btn, .ai-btn {
     position: fixed;
     bottom: 10px;
     background: #2e7d32;
@@ -222,11 +232,6 @@ header h1 {
 }
 
 .customize-btn {
-    left: 25%;
-    transform: translateX(-50%);
-}
-
-.voice-play-btn {
     left: 50%;
     transform: translateX(-50%);
 }
@@ -293,24 +298,42 @@ header h1 {
 
 .settings-panel {
     padding: 60px 20px 20px;
-    height: 100vh;
+    height: calc(100vh - 80px);
     overflow-y: auto;
     background: #f5f5f0;
+    box-sizing: border-box;
+}
+
+.settings-content {
+    max-width: 400px; /* Limite la largeur pour un centrage élégant */
+    margin: 0 auto; /* Centre le contenu horizontalement */
+    padding: 20px; /* Ajoute un padding interne pour l'espace avec les bordures */
+    border-radius: 10px; /* Coins arrondis pour un look moderne */
+    background: #ffffff; /* Fond blanc pour contraste avec le fond principal */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère pour un effet moderne */
 }
 
 .setting {
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Espacement entre chaque groupe de paramètres */
+    padding: 10px; /* Padding interne pour chaque setting */
+    border-bottom: 1px solid #d2c9a3; /* Ligne fine pour séparer les sections */
 }
 
 .setting label {
     display: block;
     margin-bottom: 5px;
+    font-weight: 600; /* Texte plus bold pour un look moderne */
+    color: #1a3c34;
 }
 
 .setting input, .setting select {
     width: 100%;
-    padding: 5px;
+    padding: 8px; /* Padding plus généreux pour un aspect élégant */
     margin-bottom: 5px;
+    border: 1px solid #d2c9a3;
+    border-radius: 5px; /* Coins arrondis pour les inputs */
+    box-sizing: border-box;
+    font-size: 14px;
 }
 
 .auth-btn, .link-btn {
@@ -323,19 +346,26 @@ header h1 {
     text-align: center;
     text-decoration: none;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    transition: background 0.3s ease; /* Animation au survol */
+}
+
+.auth-btn:hover, .link-btn:hover {
+    background: #1f5c24; /* Légère variation de couleur au survol */
 }
 
 .favorites-page {
     padding: 60px 20px 20px;
-    height: 100vh;
+    height: calc(100vh - 80px);
     overflow-y: auto;
     background: #fff;
+    box-sizing: border-box;
 }
 
 #favoritesList {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 #favoritesList li {
@@ -354,13 +384,15 @@ header h1 {
 
 .notes-page {
     padding: 60px 20px 20px;
-    height: 100vh;
+    height: calc(100vh - 80px);
     overflow-y: auto;
     background: #f5f5f0;
+    box-sizing: border-box;
 }
 
 .notes-content {
     padding: 20px;
+    padding-bottom: 20px;
 }
 
 #newCategory {
@@ -427,7 +459,7 @@ body.dark .search-results .result-item:hover {
     background: #3a3a3a;
 }
 
-body.dark .favorite-btn, body.dark .customize-btn, body.dark .voice-play-btn, body.dark .ai-btn {
+body.dark .favorite-btn, body.dark .customize-btn, body.dark .ai-btn {
     background: #2e7d32;
 }
 
