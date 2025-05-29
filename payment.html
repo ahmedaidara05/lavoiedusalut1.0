@@ -48,25 +48,25 @@
             const apiSecret = '60722af081d51b2f0d4732a2d1699a19a005ca2327aa2665eab4e65dbe4e4332';
             const amount = 2000;
             const currency = 'XOF';
-            const reference = `ORDER_${Date.now()}`;
-            const ipnUrl = 'https://yourdomain.com/ipn';
-            const successUrl = 'https://yourdomain.com/index.html?payment=success';
-            const cancelUrl = 'https://yourdomain.com/index.html?payment=cancel';
+            const refCommand = `ORDER_${Date.now()}`; // Utilisation explicite de ref_command
+            const ipnUrl = 'https://hooks.zapier.com/hooks/catch/22966712/2vofva2/';
+            const successUrl = 'https://ahmedaidara05.github.io/lavoiedusalut1.0/index.html?payment=success';
+            const cancelUrl = 'https://ahmedaidara05.github.io/lavoiedusalut1.0/index.html?payment=cancel';
 
             const fields = {
                 api_key: apiKey,
                 api_secret: apiSecret,
                 amount: amount,
                 currency: currency,
-                reference: reference,
+                ref_command: refCommand, // Remplacement de 'reference' par 'ref_command'
                 ipn_url: ipnUrl,
                 success_url: successUrl,
                 cancel_url: cancelUrl,
                 item_name: 'La Voie du Salut - Accès Complet',
                 item_price: amount,
                 description: 'Achat de l\'accès complet au livre La Voie du Salut (chapitres 8 à 44)',
-                customer_email: 'client@example.com', // À remplacer dynamiquement si possible
-                customer_phone: '1234567890' // À remplacer dynamiquement si possible
+                customer_email: 'client@example.com', // Remplacez par l'email de l'utilisateur si possible
+                customer_phone: '1234567890' // Remplacez par le numéro de l'utilisateur si possible
             };
 
             for (const [key, value] of Object.entries(fields)) {
@@ -78,7 +78,7 @@
             }
 
             document.body.appendChild(form);
-            form.submit();
+            form.submit(); // Soumission immédiate du formulaire
         });
     </script>
 </body>
